@@ -5,9 +5,9 @@ Welcome to the encapsulated-mdl wiki!
 ##### This a fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
 
 This fork attempts to add a graceful patch to enable MDL encapsulation.
-Please refer to Issue 1730 of the official MDL.
+Please refer to [Issue 1730](https://github.com/google/material-design-lite/issues/1730) of the official MDL.
 
-[Official MDL README](https://github.com/genadis/encapsulated-mdl/blob/master/README.md)
+[Official MDL README](https://github.com/google/material-design-lite/blob/master/README.md)
 
 ## Build
 
