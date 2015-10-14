@@ -53,6 +53,11 @@ const banner = ['/**',
 
 let codeFiles = '';
 
+/* encapsulation PATCH */
+let encapsulate = false;
+let vendor = '"Google"';
+let encapWindow = 'window';
+
 const AUTOPREFIXER_BROWSERS = [
   'ie >= 10',
   'ie_mob >= 10',
@@ -66,6 +71,7 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 const SOURCES = [
+  'src/encapsulationPatch.js',
   // Component handler
   'src/mdlComponentHandler.js',
   // Polyfills/dependencies
@@ -97,7 +103,8 @@ const SOURCES = [
 gulp.task('lint', () => {
   return gulp.src([
       'src/**/*.js',
-      'gulpfile.babel.js'
+      'gulpfile.babel.js',
+      '!src/encapsulationPatch.js'
     ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
@@ -235,7 +242,7 @@ gulp.task('scripts', ['lint'], () => {
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
-    .pipe($.iife({useStrict: true}))
+    .pipe($.iife({useStrict: true, args: ['window',vendor, encapWindow], params: ['gWindow','vendor','window', 'undefined']}))
     .pipe(gulp.dest('dist'))
     // Minify Scripts
     .pipe($.uglify({
@@ -284,11 +291,34 @@ gulp.task('all', ['clean'], cb => {
     cb);
 });
 
+/**
+ * Build encapsulated production files and microsite
+ * The task expects --vendor [NAME] parameter
+ * If none given, default "Google" is used
+ * MDL is encapsulated inside window.[vendor].mdl
+ */
+
+gulp.task('all:encap', cb => {
+  let i = process.argv.indexOf('--vendor');
+  if (i > -1) {
+    vendor = process.argv[i + 1];
+  }
+  encapsulate = true;
+  encapWindow = 'undefined';
+
+  runSequence(['all'], cb);
+});
+
 // ***** Testing tasks ***** //
 
 gulp.task('mocha', ['styles'], () => {
   return gulp.src('test/index.html')
-    .pipe($.mochaPhantomjs({reporter: 'tap'}));
+    .pipe($.replace('$$vendorName$$', vendor))
+    .pipe($.rename('temp.html'))
+    .pipe(gulp.dest('test'))
+    .pipe($.mochaPhantomjs({reporter: 'tap'}))
+    .on('finish', () => del.sync('test/temp.html'))
+    .on('error', () => del.sync('test/temp.html'));
 });
 
 gulp.task('mocha:closure', ['closure'], () => {

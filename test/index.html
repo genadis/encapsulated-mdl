@@ -71,6 +71,26 @@
 
 <script>
   window.addEventListener('load', function () {
+    var vendor = $$vendorName$$;
+
+    window.componentHandler = window.componentHandler || window[vendor].mdl.componentHandler;
+    window.MaterialButton = window.MaterialButton || window[vendor].mdl.MaterialButton;
+    window.MaterialCheckbox = window.MaterialCheckbox || window[vendor].mdl.MaterialCheckbox;
+    window.MaterialDataTable = window.MaterialDataTable || window[vendor].mdl.MaterialDataTable;
+    window.MaterialIconToggle = window.MaterialIconToggle || window[vendor].mdl.MaterialIconToggle;
+    window.MaterialLayout = window.MaterialLayout || window[vendor].mdl.MaterialLayout;
+    window.MaterialMenu = window.MaterialMenu || window[vendor].mdl.MaterialMenu;
+    window.MaterialProgress = window.MaterialProgress || window[vendor].mdl.MaterialProgress;
+    window.MaterialRadio = window.MaterialRadio || window[vendor].mdl.MaterialRadio;
+    window.MaterialRipple = window.MaterialRipple || window[vendor].mdl.MaterialRipple;
+    window.MaterialSlider = window.MaterialSlider || window[vendor].mdl.MaterialSlider;
+    window.MaterialSnackbar = window.MaterialSnackbar || window[vendor].mdl.MaterialSnackbar;
+    window.MaterialSpinner = window.MaterialSpinner || window[vendor].mdl.MaterialSpinner;
+    window.MaterialSwitch = window.MaterialSwitch || window[vendor].mdl.MaterialSwitch;
+    window.MaterialTabs = window.MaterialTabs || window[vendor].mdl.MaterialTabs;
+    window.MaterialTextfield = window.MaterialTextfield || window[vendor].mdl.MaterialTextfield;
+    window.MaterialTooltip = window.MaterialTooltip || window[vendor].mdl.MaterialTooltip;
+
     if (window.mochaPhantomJS) {
       mochaPhantomJS.run();
     } else {
