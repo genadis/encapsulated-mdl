@@ -1,7 +1,5 @@
 # Material Design Lite Encapsulated
 
-Welcome to the encapsulated-mdl wiki!
-
 ##### This a fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
 
 This fork attempts to add a graceful patch to enable MDL encapsulation.
@@ -12,16 +10,22 @@ Please refer to [Issue 1730](https://github.com/google/material-design-lite/issu
 ## Build
 
 Follow the official documentation. But instead of running
-    gulp all && gulp serve
+```
+gulp all && gulp serve
+```    
 Run:
-    gulp all:encap
- * The task expects --vendor [NAME] parameter
- * If none given, default "Google" is used
- * MDL objects and functions encapsulated inside window.[vendor].mdl
+```
+gulp all:encap
+```    
+* The task expects --vendor [NAME] parameter
+* If none given, default "Google" is used
+* MDL objects and functions encapsulated inside window.[vendor].mdl
 
 To specify "foo" vendor run:
-    gulp all:encap --vendor 'foo'
-    \\ NOTE: the '' quotation is important!
+```
+gulp all:encap --vendor 'foo'
+```
+##### NOTE: the quotation mark around vendor name is important!
 
 # Material Design Lite
 
