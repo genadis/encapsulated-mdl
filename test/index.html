@@ -41,7 +41,6 @@
     return bound;
   };
 </script>
-<script src="../dist/material.js"></script>
 <script>
   // mocha.ui('bdd');
   mocha.setup('bdd');
@@ -69,10 +68,35 @@
 <script src="unit/tooltip.js"></script>
 <script src="unit/menu.js"></script>
 
+<script src="../node_modules/systemjs/dist/system.js"></script>
+
 <script>
   window.addEventListener('load', function () {
     var vendor = $$vendorName$$;
 
+    System.config({
+      baseURL: '../dist'
+    });
+
+    System.import('material.js').then(function (mdl) {
+
+      if(undefined !== vendor) {
+        window.componentHandler = mdl.componentHandler;
+        for (key in mdl.components) {
+          if (mdl.components.hasOwnProperty(key)) {
+            window[key] = mdl.components[key];
+          }
+        }
+      }
+
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
+    });
+
+    /*
     window.componentHandler = window.componentHandler || window[vendor].mdl.componentHandler;
     window.MaterialButton = window.MaterialButton || window[vendor].mdl.MaterialButton;
     window.MaterialCheckbox = window.MaterialCheckbox || window[vendor].mdl.MaterialCheckbox;
@@ -90,12 +114,8 @@
     window.MaterialTabs = window.MaterialTabs || window[vendor].mdl.MaterialTabs;
     window.MaterialTextfield = window.MaterialTextfield || window[vendor].mdl.MaterialTextfield;
     window.MaterialTooltip = window.MaterialTooltip || window[vendor].mdl.MaterialTooltip;
+    */
 
-    if (window.mochaPhantomJS) {
-      mochaPhantomJS.run();
-    } else {
-      mocha.run();
-    }
   });
 </script>
 </body>

@@ -94,7 +94,8 @@ const SOURCES = [
   'src/layout/layout.js',
   'src/data-table/data-table.js',
   // And finally, the ripples
-  'src/ripple/ripple.js'
+  'src/ripple/ripple.js',
+  'src/mdlExport.js'
 ];
 
 // ***** Development tasks ****** //
@@ -104,7 +105,8 @@ gulp.task('lint', () => {
   return gulp.src([
       'src/**/*.js',
       'gulpfile.babel.js',
-      '!src/encapsulationPatch.js'
+      '!src/encapsulationPatch.js',
+      '!src/mdlExport.js'
     ])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
@@ -237,12 +239,14 @@ gulp.task('closure', () => {
 
 // Concatenate And Minify JavaScript
 gulp.task('scripts', ['lint'], () => {
+  let iifeArgs = ['window',vendor,encapWindow];
+  let iifeParams = ['gWindow','vendor','window','undefined'];
   return gulp.src(SOURCES)
     .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
     .pipe($.concat('material.js'))
-    .pipe($.iife({useStrict: true, args: ['window',vendor, encapWindow], params: ['gWindow','vendor','window', 'undefined']}))
+    .pipe($.iife({useStrict: true, args: iifeArgs, params: iifeParams}))
     .pipe(gulp.dest('dist'))
     // Minify Scripts
     .pipe($.uglify({
@@ -312,8 +316,12 @@ gulp.task('all:encap', cb => {
 // ***** Testing tasks ***** //
 
 gulp.task('mocha', ['styles'], () => {
+  let mochaVendor = 'undefined';
+  if (true === encapsulate) {
+    mochaVendor = vendor;
+  }
   return gulp.src('test/index.html')
-    .pipe($.replace('$$vendorName$$', vendor))
+    .pipe($.replace('$$vendorName$$', mochaVendor))
     .pipe($.rename('temp.html'))
     .pipe(gulp.dest('test'))
     .pipe($.mochaPhantomjs({reporter: 'tap'}))

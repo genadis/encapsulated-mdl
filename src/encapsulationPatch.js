@@ -13,6 +13,4 @@
     if(gWindow.requestAnimationFrame) { window.requestAnimationFrame = gWindow.requestAnimationFrame.bind(gWindow); }
     if(gWindow.cancelAnimationFrame) { window.cancelAnimationFrame = gWindow.cancelAnimationFrame.bind(gWindow); }
 
-    gWindow[vendor] = gWindow[vendor] || {};
-    gWindow[vendor].mdl = window;
   }

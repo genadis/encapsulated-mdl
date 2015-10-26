@@ -57,6 +57,7 @@
     "prismjs": "0.0.1",
     "run-sequence": "^1.0.2",
     "swig": "^1.4.2",
+    "systemjs": "^0.19.5",
     "through2": "^2.0.0",
     "vinyl-paths": "^2.0.0"
   },
@@ -72,6 +73,7 @@
   "jspm": {
     "name": "encapsulated-mdl",
     "repository": "genadis/encapsulated-mdl",
+    "version": "2.0.0",
     "main": "./material.min.js"
   }
 }
