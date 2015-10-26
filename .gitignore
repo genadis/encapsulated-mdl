@@ -7,3 +7,4 @@ docs/out
 /dist
 .idea/
 _release/
+jspm_release/
