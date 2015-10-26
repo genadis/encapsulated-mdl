@@ -6,3 +6,4 @@ docs/out
 .publish
 /dist
 .idea/
+_release/
