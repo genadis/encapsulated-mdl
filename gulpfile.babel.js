@@ -745,6 +745,22 @@ gulp.task('_release', () => {
     .pipe(gulp.dest('_release'));
 });
 
+gulp.task('_release:encap', () => {
+  return gulp.src([
+    'dist/material?(.*.min|.min)@(.js|.css)?(.map)',
+    'LICENSE',
+    'README.md',
+    'bower.json',
+    'package.json',
+    '.jscsrc',
+    '.jshintrc',
+    './sr?/**/*',
+    'gulpfile.babel.js',
+    './util?/**/*'
+  ])
+    .pipe(gulp.dest('_release'));
+});
+
 gulp.task('publish:release', ['_release'], () => {
   return gulp.src('_release')
     .pipe($.subtree({
