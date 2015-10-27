@@ -10,7 +10,6 @@ _release/
 src/
 test/
 docs/
-utils/
 templates/
 .jscsrc
 .jshintrc
