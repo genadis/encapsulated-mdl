@@ -756,11 +756,9 @@ gulp.task('_release', () => {
 gulp.task('jspm:release', () => {
   return gulp.src([
     'dist/material?(.*.min|.min)@(.js|.css)?(.map)',
-    'LICENSE',
-    'README.md',
-    'package.json',
+    'LICENSE'
   ])
-    .pipe(gulp.dest('jspm_release'));
+    .pipe(gulp.dest('release'));
 });
 
 gulp.task('publish:release', ['_release'], () => {

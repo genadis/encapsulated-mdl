@@ -74,6 +74,6 @@
     "name": "encapsulated-mdl",
     "repository": "genadis/encapsulated-mdl",
     "version": "2.0.0",
-    "main": "./material.min.js"
+    "main": "./release/material.min.js"
   }
 }
