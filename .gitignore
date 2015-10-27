@@ -7,4 +7,14 @@ docs/out
 /dist
 .idea/
 _release/
-jspm_release/
+src/
+test/
+docs/
+utils/
+templates/
+.jscsrc
+.jshintrc
+.drone.p12.enc
+.drone.yml
+.editorconfig
+bower.json
