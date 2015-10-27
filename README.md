@@ -2,10 +2,18 @@
 
 ##### This a fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
 
-This fork attempts to add a graceful patch to enable MDL encapsulation.
+This fork attempts to add a graceful patch to enable MDL encapsulation as Module or fallback to vendor under global window.
+
 Please refer to [Issue 1730](https://github.com/google/material-design-lite/issues/1730) of the official MDL.
 
-[Official MDL README](https://github.com/google/material-design-lite/blob/master/README.md)
+The patch:
+```
+gulpfile.babel.js           // add all:encap, jspm:release tasks, minor modification to scripts task
+src/encapsulationPatch.js   // new JS (10 lines)
+src/mdlExport.js            // new JS (30 lines)
+test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for macha tests
+package.json                // add jspm configuration
+```
 
 ## Build
 
@@ -17,15 +25,54 @@ Run:
 ```
 gulp all:encap
 ```    
+To build and test (SystemJS is used for loading mdl as module for testing).
+
+Exported:
+```
+// In your index.html or app.js
+System.import('material.js').then(function (mdl) {
+  mdl.componentHandler;
+  mdl.components;            // all the Material design objects (MaterialButton, MaterialMenu, etc)
+}
+```
+
+If module not used (script tag loading), falls back to encapsulation under:
+```
+window[vendor].mdl
+```
 * The task expects --vendor [NAME] parameter
 * If none given, default "Google" is used
-* MDL objects and functions encapsulated inside window.[vendor].mdl
+* MDL objects and functions encapsulated as fallback inside window[vendor].mdl
 
 To specify "foo" vendor run:
 ```
 gulp all:encap --vendor 'foo'
 ```
 ##### NOTE: the quotation mark around vendor name is important!
+
+## JSPM
+
+[Jspm](http://jspm.io/) package configuration was added as well.
+
+Running:
+```
+gulp jspm:release
+```
+Will generate "jspm_release" folder. used as directories.lib
+
+Check out the [jsp-releasa branch](https://github.com/genadis/encapsulated-mdl/tree/jspm-release)
+
+### Versioning
+Notice the Major is 2.X.x instead of 1.X.X since building encapsulated version does not populate componentHandler into global scope - changes API.
+
+You can always run the usual:
+```
+gulp all
+```
+To build and test the regular global version of MDL.
+
+## Aurelia
+If you are using [aurelia](http://aurelia.io), check out [aurelia-mdl](https://github.com/genadis/aurelia-mdl)
 
 # Material Design Lite
 
