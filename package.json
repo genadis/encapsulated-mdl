@@ -1,6 +1,6 @@
 {
   "name": "material-design-lite",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Material Design Components in CSS, JS and HTML",
   "private": true,
   "license": "Apache-2.0",
@@ -73,7 +73,7 @@
   "jspm": {
     "name": "encapsulated-mdl",
     "repository": "genadis/encapsulated-mdl",
-    "version": "2.0.0",
+    "version": "2.0.6",
     "main": "./material.min.js",
     "directories": {
       "lib": "jspm_release"
