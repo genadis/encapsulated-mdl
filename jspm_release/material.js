@@ -111,7 +111,7 @@ componentHandler = (function() {
   /** @type {!Array<componentHandler.Component>} */
   var createdComponents_ = [];
 
-  var downgradeMethod_ = 'mdlDowngrade_';
+  var downgradeMethod_ = 'mdlDowngrade';
   var componentConfigProperty_ = 'mdlComponentConfigInternal_';
 
   /**
@@ -671,6 +671,13 @@ MaterialButton.prototype.mdlDowngrade_ = function () {
     this.element_.removeEventListener('mouseup', this.boundButtonBlurHandler);
     this.element_.removeEventListener('mouseleave', this.boundButtonBlurHandler);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialButton.prototype.mdlDowngrade = MaterialButton.prototype.mdlDowngrade_;
+MaterialButton.prototype['mdlDowngrade'] = MaterialButton.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -917,12 +924,122 @@ MaterialCheckbox.prototype.mdlDowngrade_ = function () {
     this.inputElement_.removeEventListener('blur', this.boundInputOnBlur);
     this.element_.removeEventListener('mouseup', this.boundElementMouseUp);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialCheckbox.prototype.mdlDowngrade = MaterialCheckbox.prototype.mdlDowngrade_;
+MaterialCheckbox.prototype['mdlDowngrade'] = MaterialCheckbox.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
     constructor: MaterialCheckbox,
     classAsString: 'MaterialCheckbox',
     cssClass: 'mdl-js-checkbox',
+    widget: true
+});
+/**
+ * @license
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+   * Class constructor for Dialog MDL component.
+   * Implements MDL component design pattern defined at:
+   * https://github.com/jasonmayes/mdl-component-design-pattern
+   *
+   * @constructor
+   * @param {HTMLElement} element The element that will be upgraded.
+   */
+var MaterialDialog = function MaterialDialog(element) {
+    this.element_ = element;
+};
+window['MaterialDialog'] = MaterialDialog;
+/**
+   * Store strings for class names defined by this component that are used in
+   * JavaScript. This allows us to simply change it in one place should we
+   * decide to modify at a later date.
+   *
+   * @enum {string}
+   * @private
+   */
+MaterialDialog.prototype.cssClasses_ = { BACKDROP: 'mdl-dialog-backdrop' };
+/**
+  * Internal method for showing the dialog.
+  *
+  * @private
+  */
+MaterialDialog.prototype.showInternal_ = function (backdrop) {
+    if (backdrop === undefined) {
+        throw Error('You must provide whether or not to show the backdrop.');
+    }
+    if (this.element_.hasAttribute('open')) {
+        return;
+    }
+    if (backdrop) {
+        this.createBackdrop_();
+    }
+    this.element_.setAttribute('open', true);
+};
+/**
+  * Internal method to create a modal backdrop.
+  *
+  * @private
+  */
+MaterialDialog.prototype.createBackdrop_ = function () {
+    this.backdropElement_ = document.createElement('div');
+    this.backdropElement_.classList.add(this.cssClasses_.BACKDROP);
+    document.body.appendChild(this.backdropElement_);
+};
+/**
+  * Show the dialog.
+  *
+  * @public
+  */
+MaterialDialog.prototype.show = function () {
+    this.showInternal_(false);
+};
+MaterialDialog.prototype['show'] = MaterialDialog.prototype.show;
+/**
+  * Show the dialog as a modal.
+  *
+  * @public
+  */
+MaterialDialog.prototype.showModal = function () {
+    this.showInternal_(true);
+};
+MaterialDialog.prototype['showModal'] = MaterialDialog.prototype.showModal;
+/**
+  * Close the dialog.
+  *
+  * @public
+  */
+MaterialDialog.prototype.close = function () {
+    this.element_.removeAttribute('open');
+    if (this.backdropElement_) {
+        document.body.removeChild(this.backdropElement_);
+        this.backdropElement_ = undefined;
+    }
+};
+MaterialDialog.prototype['close'] = MaterialDialog.prototype.close;
+// The component registers itself. It can assume componentHandler is available
+// in the global scope.
+componentHandler.register({
+    constructor: MaterialDialog,
+    classAsString: 'MaterialDialog',
+    cssClass: 'mdl-js-dialog',
     widget: true
 });
 /**
@@ -1150,6 +1267,13 @@ MaterialIconToggle.prototype.mdlDowngrade_ = function () {
     this.inputElement_.removeEventListener('blur', this.boundInputOnBlur);
     this.element_.removeEventListener('mouseup', this.boundElementOnMouseUp);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialIconToggle.prototype.mdlDowngrade = MaterialIconToggle.prototype.mdlDowngrade_;
+MaterialIconToggle.prototype['mdlDowngrade'] = MaterialIconToggle.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -1576,6 +1700,13 @@ MaterialMenu.prototype.mdlDowngrade_ = function () {
         items[i].removeEventListener('keydown', this.boundItemKeydown_);
     }
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialMenu.prototype.mdlDowngrade = MaterialMenu.prototype.mdlDowngrade_;
+MaterialMenu.prototype['mdlDowngrade'] = MaterialMenu.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -1687,6 +1818,13 @@ MaterialProgress.prototype.mdlDowngrade_ = function () {
         this.element_.removeChild(this.element_.firstChild);
     }
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialProgress.prototype.mdlDowngrade = MaterialProgress.prototype.mdlDowngrade_;
+MaterialProgress.prototype['mdlDowngrade'] = MaterialProgress.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -1894,6 +2032,10 @@ MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 MaterialRadio.prototype.init = function () {
     if (this.element_) {
         this.btnElement_ = this.element_.querySelector('.' + this.CssClasses_.RADIO_BTN);
+        this.boundChangeHandler_ = this.onChange_.bind(this);
+        this.boundFocusHandler_ = this.onChange_.bind(this);
+        this.boundBlurHandler_ = this.onBlur_.bind(this);
+        this.boundMouseUpHandler_ = this.onMouseup_.bind(this);
         var outerCircle = document.createElement('span');
         outerCircle.classList.add(this.CssClasses_.RADIO_OUTER_CIRCLE);
         var innerCircle = document.createElement('span');
@@ -1907,20 +2049,43 @@ MaterialRadio.prototype.init = function () {
             rippleContainer.classList.add(this.CssClasses_.RIPPLE_CONTAINER);
             rippleContainer.classList.add(this.CssClasses_.RIPPLE_EFFECT);
             rippleContainer.classList.add(this.CssClasses_.RIPPLE_CENTER);
-            rippleContainer.addEventListener('mouseup', this.onMouseup_.bind(this));
+            rippleContainer.addEventListener('mouseup', this.boundMouseUpHandler_);
             var ripple = document.createElement('span');
             ripple.classList.add(this.CssClasses_.RIPPLE);
             rippleContainer.appendChild(ripple);
             this.element_.appendChild(rippleContainer);
         }
-        this.btnElement_.addEventListener('change', this.onChange_.bind(this));
-        this.btnElement_.addEventListener('focus', this.onFocus_.bind(this));
-        this.btnElement_.addEventListener('blur', this.onBlur_.bind(this));
-        this.element_.addEventListener('mouseup', this.onMouseup_.bind(this));
+        this.btnElement_.addEventListener('change', this.boundChangeHandler_);
+        this.btnElement_.addEventListener('focus', this.boundFocusHandler_);
+        this.btnElement_.addEventListener('blur', this.boundBlurHandler_);
+        this.element_.addEventListener('mouseup', this.boundMouseUpHandler_);
         this.updateClasses_();
         this.element_.classList.add(this.CssClasses_.IS_UPGRADED);
     }
 };
+/**
+   * Downgrade the element.
+   *
+   * @private
+   */
+MaterialRadio.prototype.mdlDowngrade_ = function () {
+    var rippleContainer = this.element_.querySelector('.' + this.CssClasses_.RIPPLE_CONTAINER);
+    this.btnElement_.removeEventListener('change', this.boundChangeHandler_);
+    this.btnElement_.removeEventListener('focus', this.boundFocusHandler_);
+    this.btnElement_.removeEventListener('blur', this.boundBlurHandler_);
+    this.element_.removeEventListener('mouseup', this.boundMouseUpHandler_);
+    if (rippleContainer) {
+        rippleContainer.removeEventListener('mouseup', this.boundMouseUpHandler_);
+        this.element_.removeChild(rippleContainer);
+    }
+};
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialRadio.prototype.mdlDowngrade = MaterialRadio.prototype.mdlDowngrade_;
+MaterialRadio.prototype['mdlDowngrade'] = MaterialRadio.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -2147,6 +2312,13 @@ MaterialSlider.prototype.mdlDowngrade_ = function () {
     this.element_.removeEventListener('mouseup', this.boundMouseUpHandler);
     this.element_.parentElement.removeEventListener('mousedown', this.boundContainerMouseDownHandler);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialSlider.prototype.mdlDowngrade = MaterialSlider.prototype.mdlDowngrade_;
+MaterialSlider.prototype['mdlDowngrade'] = MaterialSlider.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -2690,6 +2862,13 @@ MaterialSwitch.prototype.mdlDowngrade_ = function () {
     this.inputElement_.removeEventListener('blur', this.boundBlurHandler);
     this.element_.removeEventListener('mouseup', this.boundMouseUpHandler);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialSwitch.prototype.mdlDowngrade = MaterialSwitch.prototype.mdlDowngrade_;
+MaterialSwitch.prototype['mdlDowngrade'] = MaterialSwitch.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -3069,6 +3248,13 @@ MaterialTextfield.prototype.mdlDowngrade_ = function () {
         this.input_.removeEventListener('keydown', this.boundKeyDownHandler);
     }
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialTextfield.prototype.mdlDowngrade = MaterialTextfield.prototype.mdlDowngrade_;
+MaterialTextfield.prototype['mdlDowngrade'] = MaterialTextfield.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -3187,6 +3373,13 @@ MaterialTooltip.prototype.mdlDowngrade_ = function () {
         window.removeEventListener('touchstart', this.boundMouseLeaveHandler);
     }
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialTooltip.prototype.mdlDowngrade = MaterialTooltip.prototype.mdlDowngrade_;
+MaterialTooltip.prototype['mdlDowngrade'] = MaterialTooltip.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -3637,6 +3830,7 @@ MaterialDataTable.prototype.Constant_ = {};
 MaterialDataTable.prototype.CssClasses_ = {
     DATA_TABLE: 'mdl-data-table',
     SELECTABLE: 'mdl-data-table--selectable',
+    SELECT_ELEMENT: 'mdl-data-table__select',
     IS_SELECTED: 'is-selected',
     IS_UPGRADED: 'is-upgraded'
 };
@@ -3689,22 +3883,19 @@ MaterialDataTable.prototype.selectRow_ = function (checkbox, row, opt_rows) {
    */
 MaterialDataTable.prototype.createCheckbox_ = function (row, opt_rows) {
     var label = document.createElement('label');
-    label.classList.add('mdl-checkbox');
-    label.classList.add('mdl-js-checkbox');
-    label.classList.add('mdl-js-ripple-effect');
-    label.classList.add('mdl-data-table__select');
+    var labelClasses = [
+        'mdl-checkbox',
+        'mdl-js-checkbox',
+        'mdl-js-ripple-effect',
+        this.CssClasses_.SELECT_ELEMENT
+    ];
+    label.className = labelClasses.join(' ');
     var checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('mdl-checkbox__input');
     if (row) {
         checkbox.checked = row.classList.contains(this.CssClasses_.IS_SELECTED);
         checkbox.addEventListener('change', this.selectRow_(checkbox, row));
-        if (row.hasAttribute('data-mdl-data-table-selectable-name')) {
-            checkbox.name = row.getAttribute('data-mdl-data-table-selectable-name');
-        }
-        if (row.hasAttribute('data-mdl-data-table-selectable-value')) {
-            checkbox.value = row.getAttribute('data-mdl-data-table-selectable-value');
-        }
     } else if (opt_rows) {
         checkbox.addEventListener('change', this.selectRow_(checkbox, null, opt_rows));
     }
@@ -3980,6 +4171,13 @@ MaterialRipple.prototype.mdlDowngrade_ = function () {
     this.element_.removeEventListener('touchend', this.boundUpHandler);
     this.element_.removeEventListener('blur', this.boundUpHandler);
 };
+/**
+   * Public alias for the downgrade method.
+   *
+   * @public
+   */
+MaterialRipple.prototype.mdlDowngrade = MaterialRipple.prototype.mdlDowngrade_;
+MaterialRipple.prototype['mdlDowngrade'] = MaterialRipple.prototype.mdlDowngrade;
 // The component registers itself. It can assume componentHandler is available
 // in the global scope.
 componentHandler.register({
@@ -4010,6 +4208,7 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialTabs = window.MaterialTabs;
     mdl.components.MaterialTextfield = window.MaterialTextfield;
     mdl.components.MaterialTooltip = window.MaterialTooltip;
+    mdl.components.MaterialDialog = window.MaterialDialog;
 
     module.exports = mdl;
   } else {

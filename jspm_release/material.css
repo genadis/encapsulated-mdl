@@ -1,6 +1,6 @@
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.0.5
+ * @version v1.0.6
  * @license Apache-2.0
  * @copyright 2015 Google, Inc.
  * @link https://github.com/google/material-design-lite
@@ -63,6 +63,7 @@
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -169,6 +170,7 @@
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -188,6 +190,7 @@
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -259,6 +262,7 @@
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -365,6 +369,7 @@
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -677,6 +682,7 @@ main {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -783,6 +789,7 @@ main {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -802,6 +809,7 @@ main {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
@@ -1240,6 +1248,7 @@ ul, ol {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -1346,6 +1355,7 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
@@ -3083,6 +3093,7 @@ ul, ol {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3189,6 +3200,7 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-ripple {
   background: rgb(0,0,0);
@@ -3265,6 +3277,7 @@ ul, ol {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3371,6 +3384,7 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-animation--default {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3440,6 +3454,7 @@ ul, ol {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3546,6 +3561,7 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-badge {
   position: relative;
@@ -3650,6 +3666,7 @@ ul, ol {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3756,6 +3773,7 @@ ul, ol {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -3775,6 +3793,7 @@ ul, ol {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-button {
   background: transparent;
   border: none;
@@ -4024,6 +4043,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4130,6 +4150,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-card {
   display: -webkit-flex;
@@ -4286,6 +4307,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4392,6 +4414,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -4411,6 +4434,7 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -4583,6 +4607,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4689,6 +4714,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -4708,6 +4734,7 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -4828,6 +4855,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4934,6 +4962,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -4953,6 +4982,258 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
+.mdl-dialog {
+  display: block;
+  width: 280px;
+  margin: auto;
+  background: white;
+  position: fixed;
+  top: 5%;
+  right: 0;
+  left: 0;
+  z-index: 11;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2); }
+  @media (min-height: 475px) {
+    .mdl-dialog {
+      top: 35%; } }
+  .mdl-dialog:not([open]) {
+    display: none; }
+  .mdl-dialog::-webkit-backdrop {
+    background-color: rgba(0, 0, 0, 0.55); }
+  .mdl-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.55); }
+  .mdl-dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%; }
+  .mdl-dialog__title {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px; }
+  .mdl-dialog__actions {
+    padding: 8px 8px 8px 24px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .mdl-dialog__actions * {
+      margin-right: 8px;
+      height: 36px; }
+      .mdl-dialog__actions *:last-child {
+        margin-right: 0; }
+    .mdl-dialog__actions--full-width {
+      padding: 0 0 8px 0; }
+      .mdl-dialog__actions--full-width * {
+        height: 48px;
+        -webkit-flex: 0 0 100%;
+            -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+        padding-right: 16px;
+        margin-right: 0;
+        text-align: right; }
+  .mdl-dialog__content {
+    padding-top: 20px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    color: rgba(0,0,0, 0.54); }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Snackbar
+ * -----Dialog
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* SNACKBAR */
+/* DIALOG */
+/* TOOLTIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: rgb(158,158,158);
@@ -5237,6 +5518,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5343,6 +5625,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-mini-footer {
   display: -webkit-flex;
@@ -5467,6 +5750,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5573,6 +5857,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-icon-toggle {
   position: relative;
@@ -5703,6 +5988,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5809,6 +6095,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -5828,6 +6115,7 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -6029,6 +6317,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6135,6 +6424,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-progress {
   display: block;
@@ -6302,6 +6592,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6408,6 +6699,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -6427,6 +6719,7 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-navigation {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6523,19 +6816,19 @@ input.mdl-button[type="submit"] {
   .mdl-layout__drawer.is-visible {
     -webkit-transform: translateX(0);
             transform: translateX(0); }
-    .mdl-layout__drawer.is-visible ~ .mdl-layout__content {
+    .mdl-layout__drawer.is-visible ~ .mdl-layout__content.mdl-layout__content {
       overflow: hidden; }
   .mdl-layout__drawer > * {
     -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
             flex-shrink: 0; }
   .mdl-layout__drawer > .mdl-layout__title,
-  .mdl-layout__drawer > .mdl-layout-tile {
+  .mdl-layout__drawer > .mdl-layout-title {
     line-height: 64px;
     padding-left: 40px; }
     @media screen and (max-width: 1024px) {
       .mdl-layout__drawer > .mdl-layout__title,
-      .mdl-layout__drawer > .mdl-layout-tile {
+      .mdl-layout__drawer > .mdl-layout-title {
         line-height: 56px;
         padding-left: 16px; } }
   .mdl-layout__drawer .mdl-navigation {
@@ -6561,7 +6854,7 @@ input.mdl-button[type="submit"] {
         background-color: rgb(224,224,224); }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
         background-color: rgb(0,0,0);
-        color: rgb(63,81,181); }
+        color: rgb(224,224,224); }
   @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
@@ -6693,6 +6986,10 @@ input.mdl-button[type="submit"] {
   overflow: hidden; }
   .mdl-layout__header--waterfall.is-casting-shadow {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .mdl-layout__header--waterfall.mdl-layout__header--waterfall-hide-top {
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
 
 .mdl-layout__header-row {
   display: -webkit-flex;
@@ -7005,6 +7302,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7111,6 +7409,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -7130,6 +7429,7 @@ input.mdl-button[type="submit"] {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -7288,6 +7588,7 @@ input.mdl-button[type="submit"] {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7394,6 +7695,7 @@ input.mdl-button[type="submit"] {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
@@ -7693,6 +7995,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7799,6 +8102,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-snackbar {
   position: fixed;
@@ -7914,6 +8218,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8020,6 +8325,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-spinner {
   display: inline-block;
@@ -8402,6 +8708,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8508,6 +8815,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -8527,6 +8835,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -8712,6 +9021,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8818,6 +9128,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-tabs {
   display: block;
@@ -8965,6 +9276,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9071,6 +9383,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -9090,6 +9403,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -9270,6 +9584,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9376,6 +9691,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-tooltip {
   -webkit-transform: scale(0);
@@ -9491,6 +9807,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9597,6 +9914,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -9616,6 +9934,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* Typography */
 /* Shadows */
 /* Animations */
+/* Dialog */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -9698,6 +10017,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Grid
  * -----Data table
  * -----Snackbar
+ * -----Dialog
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9804,6 +10124,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* GRID */
 /* DATA TABLE */
 /* SNACKBAR */
+/* DIALOG */
 /* TOOLTIP */
 .mdl-grid {
   display: -webkit-flex;
