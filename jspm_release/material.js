@@ -3424,7 +3424,8 @@ window['MaterialLayout'] = MaterialLayout;
    * @private
    */
 MaterialLayout.prototype.Constant_ = {
-    MAX_WIDTH: '(max-width: 1024px)',
+    MAX_WIDTH: '(max-width: 1280px)',
+    /* 1024px */
     TAB_SCROLL_PIXELS: 100,
     MENU_ICON: 'menu',
     CHEVRON_LEFT: 'chevron_left',
