@@ -6,5 +6,3 @@ docs/out
 .publish
 /dist
 .idea/
-_release/
-jspm_release/
