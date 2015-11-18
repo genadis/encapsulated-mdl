@@ -71,8 +71,8 @@
     "only": "gulpfile.babel.js"
   },
   "jspm": {
-    "name": "encapsulated-mdl",
-    "repository": "genadis/encapsulated-mdl",
+    "name": "mdl",
+    "repository": "genadis/mdl",
     "version": "2.0.8",
     "main": "./material.min.js",
     "directories": {
