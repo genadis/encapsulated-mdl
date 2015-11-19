@@ -71,8 +71,8 @@
     "only": "gulpfile.babel.js"
   },
   "jspm": {
-    "name": "mdl",
-    "repository": "genadis/mdl",
+    "name": "annoto-mdl",
+    "repository": "genadis/annoto-mdl",
     "version": "2.0.8",
     "main": "./material.min.js",
     "directories": {
