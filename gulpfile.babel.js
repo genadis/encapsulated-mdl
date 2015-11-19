@@ -980,6 +980,7 @@ gulp.task('styletemplates-widget', () => {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.replace('.mdl-', '.' + vendorPrefix + '-'))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp'))
     // Concatenate Styles
