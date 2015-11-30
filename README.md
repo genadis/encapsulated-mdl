@@ -51,13 +51,13 @@ gulp all:encap -v foo
 
 ### MDL for Widgets
 Encapsulates JS code as module (same as above).
-In addition, allows prefixing all the css classes with .vendor class, so `.mdl-button {}` becomes `.vendor .mdl-button {}`.
+In addition, allows prefixing all the standard element with .vendor class, so `h3 {}` becomes `.vendor h3 {}`.
+>***Note:*** Prefixing all the MDL classes such as `mdl-button` is problematics since & SASS operator is used
+across the code.
 
-For even more customization `mdl-` prefix of all the mdl classes can be modified as well so `mdl-button` can become `foo-button`.
+For custom widgets `mdl-` prefix of all the mdl classes can be modified so `mdl-button` can become `foo-button`.
 >***Note:*** customizing `mdl-` prefix patches the JS code and mocha tests (during the test itself, not the sources).
- Make sure yout use the `foo-button`, `foo-layout`, etc in your html.
- 
-Combination of vendor prefix and `mdl-` customization is supported as well, so `.mdl-button {}` becomes `.vendor .foo-button {}`.
+ Make sure you use the `foo-button`, `foo-layout`, etc in your html.
 
 Run:
 ```
@@ -77,9 +77,11 @@ gulp all:encap -v foo -p fa
 ```
 So
 ```
+h2 {}
 .mdl-button {}
 /* becomes */
-.foo fa-button {}
+.foo h2 {}
+.fa-button {}
 ```
 
 >***Note:*** This build doesn't build the demos and templates yet.
