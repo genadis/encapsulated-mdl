@@ -42,12 +42,12 @@
 }
 
 /*
-* Make body take up the entire screen
+* Make body take up the entire screen (changed for widget to take up container but not forcing it with min)
 * Remove body margin so layout containers don't cause extra overflow.
 */
 .mdl-body {
   width: 100%;
-  min-height: 100%;
+  height: 100%;   /* min-height: 100%; */
   margin: 0;
 }
 
