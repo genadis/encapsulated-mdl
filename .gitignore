@@ -8,3 +8,4 @@ docs/out
 .idea/
 _release/
 jspm_release/
+.drone.sec.yml

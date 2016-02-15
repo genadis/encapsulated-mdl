@@ -130,7 +130,11 @@ If you are using [aurelia](http://aurelia.io), check out [aurelia-mdl](https://g
 
 # Material Design Lite
 
-[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite) [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite) [![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
+[![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
+[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
+[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML
@@ -242,6 +246,7 @@ templates:
 * [Text Heavy Webpage Template](http://www.getmdl.io/templates/text-only)
 * [Stand Alone Article Template](http://www.getmdl.io/templates/article)
 * [Android.com MDL Skin Template](http://www.getmdl.io/templates/android-dot-com)
+* [Portfolio Template](http://www.getmdl.io/templates/portfolio)
 
 > Templates are not officially supported in IE9 and legacy browsers that do not
 pass the minimum-requirements defined in our

@@ -138,6 +138,21 @@
       MaterialTextfield.prototype.checkDisabled;
 
   /**
+  * Check the focus state and update field accordingly.
+  *
+  * @public
+  */
+  MaterialTextfield.prototype.checkFocus = function() {
+    if (Boolean(this.element_.querySelector(':focus'))) {
+      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
+    } else {
+      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
+    }
+  };
+  MaterialTextfield.prototype['checkFocus'] =
+    MaterialTextfield.prototype.checkFocus;
+
+  /**
    * Check the validity state and update field accordingly.
    *
    * @public
@@ -168,21 +183,6 @@
   };
   MaterialTextfield.prototype['checkDirty'] =
       MaterialTextfield.prototype.checkDirty;
-
-  /**
-  * Check the focus state and update field accordingly.
-  *
-  * @public
-  */
-  MaterialTextfield.prototype.checkFocus = function() {
-    if (Boolean(this.element_.querySelector(':focus'))) {
-      this.element_.classList.add(this.CssClasses_.IS_FOCUSED);
-    } else {
-      this.element_.classList.remove(this.CssClasses_.IS_FOCUSED);
-    }
-  };
-  MaterialTextfield.prototype['checkFocus'] =
-      MaterialTextfield.prototype.checkFocus;
 
   /**
    * Disable text field.
@@ -260,35 +260,13 @@
         if (invalid) {
           this.element_.classList.add(this.CssClasses_.IS_INVALID);
         }
+        if (this.input_.hasAttribute('autofocus')) {
+          this.element_.focus();
+          this.checkFocus();
+        }
       }
     }
   };
-
-  /**
-   * Downgrade the component
-   *
-   * @private
-   */
-  MaterialTextfield.prototype.mdlDowngrade_ = function() {
-    this.input_.removeEventListener('input', this.boundUpdateClassesHandler);
-    this.input_.removeEventListener('focus', this.boundFocusHandler);
-    this.input_.removeEventListener('blur', this.boundBlurHandler);
-    this.input_.removeEventListener('reset', this.boundResetHandler);
-    if (this.boundKeyDownHandler) {
-      this.input_.removeEventListener('keydown', this.boundKeyDownHandler);
-    }
-  };
-
-  /**
-   * Public alias for the downgrade method.
-   *
-   * @public
-   */
-  MaterialTextfield.prototype.mdlDowngrade =
-      MaterialTextfield.prototype.mdlDowngrade_;
-
-  MaterialTextfield.prototype['mdlDowngrade'] =
-      MaterialTextfield.prototype.mdlDowngrade;
 
   // The component registers itself. It can assume componentHandler is available
   // in the global scope.
