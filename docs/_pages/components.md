@@ -98,6 +98,16 @@ categories:
               file: image.html
             - caption: Event
               file: event.html
+  - name: dialog
+    title: Dialogs
+    description: Modal windows for dedicated user input.
+    components:
+      - name: dialog
+        class: mdl-dialog
+        warning: Dialogs use the HTML <dialog> element, which currently has very
+          limited cross-browser support. To ensure support across all modern
+          browsers, please consider using a polyfill or creating your own.
+          There is no polyfill included with MDL.
   - name: layout
     title: Layout
     description: Building blocks for constructing a page layout.
@@ -175,6 +185,31 @@ categories:
             - caption: Mini footer
               file: mini-footer.html
               full_width: true
+  - name: lists
+    title: Lists
+    description: Customizable scrollable lists.
+    components:
+      - name: list
+        class: mdl-list
+        snippets:
+          - snippet_group:
+            - caption: Simple list
+              file: list-item.html
+          - snippet_group:
+            - caption: Icons
+              file: icon.html
+          - snippet_group:
+            - caption: Avatars and actions
+              file: action.html
+          - snippet_group:
+            - caption: Avatars and controls
+              file: list-control.html
+          - snippet_group:
+            - caption: Two line
+              file: two-line.html
+          - snippet_group:
+            - caption: Three line
+              file: three-line.html
   - name: loading
     title: Loading
     description: Indicate loading and progress states.
@@ -241,6 +276,19 @@ categories:
             - caption: Starting value
               file: slider-starting-value.html
               demo_file: slider-starting-value-demo.html
+  - name: snackbar
+    title: Snackbar
+    description: Transient popup notifications.
+    components:
+      - name: snackbar
+        class: mdl-snackbar
+        snippets:
+          - snippet_group:
+            - caption: Snackbar
+              file: snackbar.html
+          - snippet_group:
+            - caption: Toast
+              file: toast.html
   - name: toggles
     title: Toggles
     description: Choose between states.

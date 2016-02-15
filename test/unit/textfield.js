@@ -59,6 +59,7 @@ describe('MaterialTextfield', function () {
       'checkDisabled',
       'checkValidity',
       'checkDirty',
+      'checkFocus',
       'disable',
       'enable',
       'change'
@@ -69,10 +70,9 @@ describe('MaterialTextfield', function () {
   });
 
   it('should be invalid after upgrade if invalid previously', function () {
-    var el = createSingleLineTextfield()
+    var el = createSingleLineTextfield();
     el.classList.add('is-invalid');
     componentHandler.upgradeElement(el);
     expect(el.classList.contains('is-invalid')).to.equal(true);
   });
-
 });

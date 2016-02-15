@@ -4,6 +4,8 @@
 
 This fork attempts to add a graceful patch to enable MDL encapsulation as Module or fallback to vendor under global window.
 In addition it has option to build MDL suited to widgets by encapsulating and prefixing the css in addition to JS encapsulation.
+This fork tracks the [mdl-1.1](https://github.com/google/material-design-lite/tree/mdl-1.1) branch of the MDL. This is due to the following note:
+>*** Important note for contributors - The master branch now has breaking V2 changes. As such it can not be merged into mdl-1.1. If you are making a contribution to 1.1, then please send pull requests directly to that branch. We will routinely merge that back into master. Thank you!
 
 Please refer to [Issue 1730](https://github.com/google/material-design-lite/issues/1730) of the official MDL.
 
@@ -12,7 +14,7 @@ The patch:
 gulpfile.babel.js           // add all:encap, jspm:release, widget tasks, minor modification to scripts task
 src/encapsulationPatch.js   // new JS (10 lines)
 src/mdlExport.js            // new JS (30 lines)
-test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for macha tests
+test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for mocha tests
 package.json                // add jspm configuration
 ```
 
@@ -73,7 +75,7 @@ and
 
 To specify "foo" vendor and "fa" prefix run:
 ```
-gulp all:encap -v foo -p fa
+gulp widget -v foo -p fa
 ```
 So
 ```
@@ -130,7 +132,11 @@ If you are using [aurelia](http://aurelia.io), check out [aurelia-mdl](https://g
 
 # Material Design Lite
 
-[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite) [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite) [![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
+[![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
+[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
+[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML
@@ -242,6 +248,7 @@ templates:
 * [Text Heavy Webpage Template](http://www.getmdl.io/templates/text-only)
 * [Stand Alone Article Template](http://www.getmdl.io/templates/article)
 * [Android.com MDL Skin Template](http://www.getmdl.io/templates/android-dot-com)
+* [Portfolio Template](http://www.getmdl.io/templates/portfolio)
 
 > Templates are not officially supported in IE9 and legacy browsers that do not
 pass the minimum-requirements defined in our

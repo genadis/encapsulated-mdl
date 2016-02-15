@@ -20,7 +20,6 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialTabs = window.MaterialTabs;
     mdl.components.MaterialTextfield = window.MaterialTextfield;
     mdl.components.MaterialTooltip = window.MaterialTooltip;
-    mdl.components.MaterialDialog = window.MaterialDialog;
 
     module.exports = mdl;
   } else {

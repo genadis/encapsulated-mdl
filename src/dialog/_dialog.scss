@@ -18,61 +18,30 @@
 @import "../mixins";
 
 .mdl-dialog {
-    display: block;
-    @include dialog-width();
-    margin: auto;
-    background: white;
-    position: fixed;
-    top: 5%;
-    right: 0;
-    left: 0;
-    z-index: 11;
-    @include shadow-24dp();
-
-    @media (min-height: 475px) {
-      top: 35%;
-    }
-
-    &:not([open]) {
-        display:none;
-    }
-
-    &::backdrop{
-        background-color: $dialog-backdrop-color;
-    }
-
-    &-backdrop {
-        background-color: $dialog-backdrop-color;
-        position:fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 10;
-        height: 100%;
-        width: 100%;
-    }
+    border: none;
+    @include shadow-24dp;
+    @include dialog-width;
 
     &__title {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 24px;
+        padding: 24px 24px 0;
+        margin: 0;
+        font-size: 2.5rem;
     }
     &__actions {
         padding: 8px 8px 8px 24px;
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap;
-        * {
+        > * {
             margin-right: 8px;
             height: 36px;
-            &:last-child {
+            &:first-child {
                 margin-right: 0;
             }
         }
         &--full-width {
           padding: 0 0 8px 0;
-          * {
+          > * {
             height: 48px;
             flex: 0 0 100%;
             padding-right: 16px;
@@ -82,10 +51,7 @@
         }
     }
     &__content {
-        padding-top: 20px;
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-bottom: 24px;
+        padding: 20px 24px 24px 24px;
         color: $dialog-content-color;
     }
 }
