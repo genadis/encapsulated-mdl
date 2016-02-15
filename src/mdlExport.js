@@ -7,6 +7,7 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialButton = window.MaterialButton;
     mdl.components.MaterialCheckbox = window.MaterialCheckbox;
     mdl.components.MaterialDataTable = window.MaterialDataTable;
+    mdl.components.MaterialDialog = window.MaterialDialog;
     mdl.components.MaterialIconToggle = window.MaterialIconToggle;
     mdl.components.MaterialLayout = window.MaterialLayout;
     mdl.components.MaterialMenu = window.MaterialMenu;
@@ -20,7 +21,6 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialTabs = window.MaterialTabs;
     mdl.components.MaterialTextfield = window.MaterialTextfield;
     mdl.components.MaterialTooltip = window.MaterialTooltip;
-    mdl.components.MaterialDialog = window.MaterialDialog;
 
     module.exports = mdl;
   } else {

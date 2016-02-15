@@ -75,7 +75,7 @@ and
 
 To specify "foo" vendor and "fa" prefix run:
 ```
-gulp all:encap -v foo -p fa
+gulp widget -v foo -p fa
 ```
 So
 ```
