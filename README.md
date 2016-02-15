@@ -4,6 +4,8 @@
 
 This fork attempts to add a graceful patch to enable MDL encapsulation as Module or fallback to vendor under global window.
 In addition it has option to build MDL suited to widgets by encapsulating and prefixing the css in addition to JS encapsulation.
+This fork tracks the [mdl-1.1](https://github.com/google/material-design-lite/tree/mdl-1.1) branch of the MDL. This is due to the following note:
+>*** Important note for contributors - The master branch now has breaking V2 changes. As such it can not be merged into mdl-1.1. If you are making a contribution to 1.1, then please send pull requests directly to that branch. We will routinely merge that back into master. Thank you!
 
 Please refer to [Issue 1730](https://github.com/google/material-design-lite/issues/1730) of the official MDL.
 
@@ -12,7 +14,7 @@ The patch:
 gulpfile.babel.js           // add all:encap, jspm:release, widget tasks, minor modification to scripts task
 src/encapsulationPatch.js   // new JS (10 lines)
 src/mdlExport.js            // new JS (30 lines)
-test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for macha tests
+test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for mocha tests
 package.json                // add jspm configuration
 ```
 
