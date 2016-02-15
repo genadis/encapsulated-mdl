@@ -4005,4 +4005,4 @@ if (false === (gWindow === window)) {
     gWindow[vendor].mdl = window;
   }
 }
-}(window, "Google", window));
+}(window, "Google", undefined));
