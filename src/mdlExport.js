@@ -7,7 +7,6 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialButton = window.MaterialButton;
     mdl.components.MaterialCheckbox = window.MaterialCheckbox;
     mdl.components.MaterialDataTable = window.MaterialDataTable;
-    mdl.components.MaterialDialog = window.MaterialDialog;
     mdl.components.MaterialIconToggle = window.MaterialIconToggle;
     mdl.components.MaterialLayout = window.MaterialLayout;
     mdl.components.MaterialMenu = window.MaterialMenu;
