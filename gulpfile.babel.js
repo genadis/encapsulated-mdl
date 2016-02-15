@@ -17,6 +17,8 @@
  *
  */
 
+ // jscs:disable jsDoc
+
 'use strict';
 
 // Include Gulp & Tools We'll Use
@@ -37,7 +39,7 @@ import pkg from './package.json';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-const hostedLibsUrlPrefix = 'https://storage.googleapis.com/code.getmdl.io';
+const hostedLibsUrlPrefix = 'https://code.getmdl.io';
 const templateArchivePrefix = 'mdl-template-';
 const bucketProd = 'gs://www.getmdl.io';
 const bucketStaging = 'gs://mdl-staging';
@@ -56,6 +58,7 @@ let codeFiles = '';
 /* encapsulation PATCH */
 let encapsulate = false;
 let vendor = '"Google"';
+let vendorPrefix = 'mdl';
 let encapWindow = 'window';
 
 const AUTOPREFIXER_BROWSERS = [
@@ -243,6 +246,7 @@ gulp.task('scripts', ['lint'], () => {
   let iifeArgs = ['window',vendor,encapWindow];
   let iifeParams = ['gWindow','vendor','window','undefined'];
   return gulp.src(SOURCES)
+    .pipe($.replace('mdl-', vendorPrefix + '-'))
     .pipe($.if(/mdlComponentHandler\.js/, $.util.noop(), uniffe()))
     .pipe($.sourcemaps.init())
     // Concatenate Scripts
@@ -287,11 +291,12 @@ gulp.task('default', ['clean'], cb => {
 // Build production files and microsite
 gulp.task('all', ['clean'], cb => {
   runSequence(
-    ['default', 'styletemplates'],
-    ['styles:gen'],
-    ['lint', 'scripts', 'assets', 'demos', 'pages',
-     'templates', 'images', 'styles-grid', 'metadata'],
+    ['styletemplates'],
+    ['styles-grid', 'styles:gen'],
+    ['scripts'],
     ['mocha'],
+    ['assets', 'pages',
+     'templates', 'images', 'metadata'],
     ['zip'],
     cb);
 });
@@ -304,9 +309,9 @@ gulp.task('all', ['clean'], cb => {
  */
 
 gulp.task('all:encap', cb => {
-  let i = process.argv.indexOf('--vendor');
+  let i = process.argv.indexOf('-v');
   if (i > -1) {
-    vendor = process.argv[i + 1];
+    vendor = '"' + process.argv[i + 1] + '"';
   }
   encapsulate = true;
   encapWindow = 'undefined';
@@ -848,4 +853,193 @@ gulp.task('styles:gen', ['styles'], () => {
   });
 
   stream.pipe(gulp.dest('dist'));
+});
+
+//************* Widget tasks ***************//
+
+/**
+ * Build encapsulated production files for widget (no demos)
+ * The task expects --vendor [NAME] parameter
+ * If none given, default "Google" is used
+ * MDL is encapsulated inside window.[vendor].mdl
+ * All the css classes prefixed by .vendor
+ */
+gulp.task('widget', ['clean'], cb => {
+  let i = process.argv.indexOf('-v');
+  if (i > -1) {
+    vendor = '"' + process.argv[i + 1] + '"';
+  }
+  i = process.argv.indexOf('-p');
+  if (i > -1) {
+    vendorPrefix = process.argv[i + 1];
+  }
+  encapsulate = true;
+  encapWindow = 'undefined';
+
+  runSequence(
+    ['scripts'],
+    ['mocha-widget:prepare', 'mocha-widget'],
+    ['mocha-widget:clean'],
+    ['styletemplates-widget'],
+    ['styles-widget:gen'],
+    ['metadata'],
+    cb);
+});
+
+/**
+ * strip string quote
+ * @param str
+ * @param quoteChar
+ * @returns {*}
+ */
+function unquoteString(str, quoteChar) {
+  quoteChar = quoteChar || '"';
+  if (str[0] === quoteChar && str[str.length - 1] === quoteChar) {
+    return str.slice(1, str.length - 1);
+  } else {
+    return str;
+  }
+}
+
+gulp.task('styles-widget-tmp', () => {
+  var stylesVendor = unquoteString(vendor);
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/material-design-lite-widget.scss')
+    .pipe($.replace('$$vendorName$$', stylesVendor))
+    .pipe(gulp.dest('.tmp'));
+});
+
+// Compile and Automatically Prefix Stylesheets (production widget)
+gulp.task('styles-widget', ['styles-widget-tmp'], () => {
+  var stylesVendor = unquoteString(vendor);
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/material-design-lite-widget.scss')
+    .pipe($.replace('$$vendorName$$', stylesVendor))
+    // Generate Source Maps
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.replace('.mdl-', '.' + vendorPrefix + '-'))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp'))
+    // Concatenate Styles
+    .pipe($.concat('material.css'))
+    .pipe($.header(banner, {pkg}))
+    .pipe(gulp.dest('dist'))
+    // Minify Styles
+    .pipe($.if('*.css', $.csso()))
+    .pipe($.concat('material.min.css'))
+    .pipe($.header(banner, {pkg}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'styles'}));
+});
+
+gulp.task('styles-widget:gen', ['styles-widget'], () => {
+  const MaterialCustomizer = require('./docs/_assets/customizer.js');
+  const templatePath = path.join(__dirname, 'dist', 'material.min.css.template');
+  // TODO: This task needs refactoring once we turn MaterialCustomizer
+  // into a proper Node module.
+  const mc = new MaterialCustomizer();
+  mc.template = fs.readFileSync(templatePath).toString();
+
+  let stream = gulp.src('');
+
+  mc.paletteIndices.forEach(primary => {
+    mc.paletteIndices.forEach(accent => {
+      if (primary === accent) {
+        return;
+      }
+
+      if (mc.forbiddenAccents.indexOf(accent) !== -1) {
+        return;
+      }
+
+      const primaryName = primary.toLowerCase().replace(' ', '_');
+      const accentName = accent.toLowerCase().replace(' ', '_');
+
+      stream = stream.pipe($.file(
+        `material.${primaryName}-${accentName}.min.css`,
+        mc.processTemplate(primary, accent)
+      ));
+    });
+  });
+
+  stream.pipe(gulp.dest('dist'));
+});
+
+// Compile and Automatically Prefix Stylesheet Templates (production widget)
+gulp.task('styletemplates-widget', () => {
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/template-widget.scss')
+    // Generate Source Maps
+    .pipe($.sourcemaps.init())
+    .pipe($.sass({
+      precision: 10,
+      onError: console.error.bind(console, 'Sass error:')
+    }))
+    .pipe($.cssInlineImages({webRoot: 'src'}))
+    .pipe($.replace('.mdl-', '.' + vendorPrefix + '-'))
+    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(gulp.dest('.tmp'))
+    // Concatenate Styles
+    .pipe($.concat('material.css.template'))
+    .pipe(gulp.dest('dist'))
+    // Minify Styles
+    .pipe($.if('*.css.template', $.csso()))
+    .pipe($.concat('material.min.css.template'))
+    .pipe($.header(banner, {pkg}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'))
+    .pipe($.size({title: 'styles'}));
+});
+
+const MOCHA_TEST_SOURCES = [
+  'test/unit/componentHandler.js',
+  // Base components
+  'test/unit/button.js',
+  'test/unit/checkbox.js',
+  'test/unit/dialog.js',
+  'test/unit/icon-toggle.js',
+  'test/unit/menu.js',
+  'test/unit/progress.js',
+  'test/unit/radio.js',
+  'test/unit/slider.js',
+  'test/unit/snackbar.js',
+  'test/unit/spinner.js',
+  'test/unit/switch.js',
+  'test/unit/tabs.js',
+  'test/unit/textfield.js',
+  'test/unit/tooltip.js',
+  // Complex components (which reuse base components)
+  'test/unit/layout.js',
+  'test/unit/data-table.js',
+  // And finally, the ripples
+  'test/unit/ripple.js'
+];
+
+gulp.task('mocha-widget:prepare', () => {
+  return gulp.src(MOCHA_TEST_SOURCES)
+    .pipe($.replace('mdl-', vendorPrefix + '-'))
+    .pipe(gulp.dest('test/unit/tmp'));
+});
+
+gulp.task('mocha-widget:clean', () => del('test/unit/tmp'));
+
+gulp.task('mocha-widget', ['styles-widget'], () => {
+  let mochaVendor = 'undefined';
+  if (true === encapsulate) {
+    mochaVendor = vendor;
+  }
+  return gulp.src('test/index.html')
+    .pipe($.replace('$$vendorName$$', mochaVendor))
+    .pipe($.replace('unit/', 'unit/tmp/'))
+    .pipe($.rename('temp.html'))
+    .pipe(gulp.dest('test'))
+    .pipe($.mochaPhantomjs({reporter: 'tap'}))
+    .on('finish', () => del.sync('test/temp.html'))
+    .on('error', () => del.sync('test/temp.html'));
 });

@@ -18,3 +18,4 @@ templates/
 .editorconfig
 bower.json
 gulpfile.babel.js
+.drone.sec.yml

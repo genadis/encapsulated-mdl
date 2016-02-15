@@ -1,26 +1,28 @@
 # Material Design Lite Encapsulated
 
-##### This a fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
+##### Fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
 
 This fork attempts to add a graceful patch to enable MDL encapsulation as Module or fallback to vendor under global window.
+In addition it has option to build MDL suited to widgets by encapsulating and prefixing the css in addition to JS encapsulation.
+This fork tracks the [mdl-1.1](https://github.com/google/material-design-lite/tree/mdl-1.1) branch of the MDL. This is due to the following note:
+>*** Important note for contributors - The master branch now has breaking V2 changes. As such it can not be merged into mdl-1.1. If you are making a contribution to 1.1, then please send pull requests directly to that branch. We will routinely merge that back into master. Thank you!
 
 Please refer to [Issue 1730](https://github.com/google/material-design-lite/issues/1730) of the official MDL.
 
 The patch:
 ```
-gulpfile.babel.js           // add all:encap, jspm:release tasks, minor modification to scripts task
+gulpfile.babel.js           // add all:encap, jspm:release, widget tasks, minor modification to scripts task
 src/encapsulationPatch.js   // new JS (10 lines)
 src/mdlExport.js            // new JS (30 lines)
-test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for macha tests
+test/index.html             // add SystemJS to load mdl as module, add MDL components to global scope for mocha tests
 package.json                // add jspm configuration
 ```
 
 ## Build
 
-Follow the official documentation. But instead of running
-```
-gulp all && gulp serve
-```    
+### MDL as Module
+Encapsulates only the JS code as module.
+
 Run:
 ```
 gulp all:encap
@@ -40,15 +42,68 @@ If module not used (script tag loading), falls back to encapsulation under:
 ```
 window[vendor].mdl
 ```
-* The task expects --vendor [NAME] parameter
+* The task expects -v [NAME] parameter
 * If none given, default "Google" is used
 * MDL objects and functions encapsulated as fallback inside window[vendor].mdl
 
 To specify "foo" vendor run:
 ```
-gulp all:encap --vendor 'foo'
+gulp all:encap -v foo
 ```
-##### NOTE: the quotation mark around vendor name is important!
+
+### MDL for Widgets
+Encapsulates JS code as module (same as above).
+In addition, allows prefixing all the standard element with .vendor class, so `h3 {}` becomes `.vendor h3 {}`.
+>***Note:*** Prefixing all the MDL classes such as `mdl-button` is problematics since & SASS operator is used
+across the code.
+
+For custom widgets `mdl-` prefix of all the mdl classes can be modified so `mdl-button` can become `foo-button`.
+>***Note:*** customizing `mdl-` prefix patches the JS code and mocha tests (during the test itself, not the sources).
+ Make sure you use the `foo-button`, `foo-layout`, etc in your html.
+
+Run:
+```
+gulp widget
+```
+The task accepts 2 parameters:
+* -v [VENDOR] parameter to specify vendor
+* If none given, default "Google" is used
+* MDL objects and functions encapsulated as fallback inside window[vendor].mdl
+and
+* -p [PREFIX] parameter to specify `mdl-` customization.
+* If none given, `mdl-` is not modified.
+
+To specify "foo" vendor and "fa" prefix run:
+```
+gulp widget -v foo -p fa
+```
+So
+```
+h2 {}
+.mdl-button {}
+/* becomes */
+.foo h2 {}
+.fa-button {}
+```
+
+>***Note:*** This build doesn't build the demos and templates yet.
+
+Widgets specific changes:
+```
+src/material-design-lite-widget.scss  // copy of src/material-design-lite.scss with minor changes
+src/template-widget.scss              // copy of src/template.scss with minor changes
+src/resets/_resets-widget.scss        // copy of src/resets/_resets.scss with minor changes
+src/resets/_h5bp-widget.scss          // copy of src/resets/_h5bp.scss with minor changes
+```
+
+#### Make use of Widget specific resets
+Resets to standard elements `h1`, `p`, `video`, etc are prefixed by the vendor class so should work as is.
+>***Note:*** MDL doesn't use !important for all the resets, so if the hosting website does, there can be issues.
+
+For `html` and `body` tags, convention was used:
+The tags are replaced by `.mdl-html` and `.mdl-body` classes, so use you could use them as the widget container under the
+vendor class.
+>***Note:*** if you compile with custom prefix lets say `fa`, they will become `.fa-html` and `fa-body` same as other `mdl-` prefixed classes.
 
 ## JSPM
 
@@ -61,6 +116,7 @@ gulp jspm:release
 Will generate "jspm_release" folder. used as directories.lib
 
 Check out the [jsp-releasa branch](https://github.com/genadis/encapsulated-mdl/tree/jspm-release)
+>***Note:*** the released versions are MDL as Module builds, for Widget builds use the build instructions as it's vendor specific.
 
 ### Versioning
 Notice the Major is 2.X.x instead of 1.X.X since building encapsulated version does not populate componentHandler into global scope - changes API.
@@ -76,7 +132,11 @@ If you are using [aurelia](http://aurelia.io), check out [aurelia-mdl](https://g
 
 # Material Design Lite
 
-[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite) [![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite) [![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![GitHub version](https://badge.fury.io/gh/google%2Fmaterial-design-lite.svg)](https://badge.fury.io/gh/google%2Fmaterial-design-lite)
+[![npm version](https://badge.fury.io/js/material-design-lite.svg)](https://badge.fury.io/js/material-design-lite)
+[![Bower version](https://badge.fury.io/bo/material-design-lite.svg)](https://badge.fury.io/bo/material-design-lite)
+[![Gitter version](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/google/material-design-lite)
+[![Dependency Status](https://david-dm.org/google/material-design-lite.svg)](https://david-dm.org/google/material-design-lite)
 
 > An implementation of [Material Design](http://www.google.com/design/spec/material-design/introduction.html)
 components in vanilla CSS, JS, and HTML
@@ -188,6 +248,7 @@ templates:
 * [Text Heavy Webpage Template](http://www.getmdl.io/templates/text-only)
 * [Stand Alone Article Template](http://www.getmdl.io/templates/article)
 * [Android.com MDL Skin Template](http://www.getmdl.io/templates/android-dot-com)
+* [Portfolio Template](http://www.getmdl.io/templates/portfolio)
 
 > Templates are not officially supported in IE9 and legacy browsers that do not
 pass the minimum-requirements defined in our
