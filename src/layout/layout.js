@@ -166,7 +166,9 @@
    * @private
    */
   MaterialLayout.prototype.keyboardEventHandler_ = function(evt) {
-    if (evt.keyCode === this.Keycodes_.ESCAPE) {
+    // Only react when the drawer is open.
+    if (evt.keyCode === this.Keycodes_.ESCAPE &&
+        this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
       this.toggleDrawer();
     }
   };
@@ -281,9 +283,16 @@
     if (this.element_) {
       var container = document.createElement('div');
       container.classList.add(this.CssClasses_.CONTAINER);
+
+      var focusedElement = this.element_.querySelector(':focus');
+
       this.element_.parentElement.insertBefore(container, this.element_);
       this.element_.parentElement.removeChild(this.element_);
       container.appendChild(this.element_);
+
+      if (focusedElement) {
+        focusedElement.focus();
+      }
 
       var directChildren = this.element_.childNodes;
       var numChildren = directChildren.length;
@@ -548,16 +557,6 @@
     });
 
     tab.show = selectTab;
-
-    tab.addEventListener('click', function(e) {
-      e.preventDefault();
-      var href = tab.href.split('#')[1];
-      var panel = layout.content_.querySelector('#' + href);
-      layout.resetTabState_(tabs);
-      layout.resetPanelState_(panels);
-      tab.classList.add(layout.CssClasses_.IS_ACTIVE);
-      panel.classList.add(layout.CssClasses_.IS_ACTIVE);
-    });
   }
   window['MaterialLayoutTab'] = MaterialLayoutTab;
 
