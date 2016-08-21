@@ -227,8 +227,15 @@ componentHandler = (function() {
           'Unable to find a registered component for the given class.');
       }
 
-      var ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentupgraded', true, true);
+      var ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
+        ev = new CustomEvent('mdl-componentupgraded', {
+          bubbles: true, cancelable: false
+        });
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentupgraded', true, true);
+      }
       element.dispatchEvent(ev);
     }
   }
@@ -241,10 +248,10 @@ componentHandler = (function() {
    */
   function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
-      if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
-      } else {
+      if (elements instanceof Element) {
         elements = [elements];
+      } else {
+        elements = Array.prototype.slice.call(elements);
       }
     }
     for (var i = 0, n = elements.length, element; i < n; i++) {
@@ -351,8 +358,15 @@ componentHandler = (function() {
       upgrades.splice(componentPlace, 1);
       component.element_.setAttribute('data-upgraded', upgrades.join(','));
 
-      var ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentdowngraded', true, true);
+      var ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
+        ev = new CustomEvent('mdl-componentdowngraded', {
+          bubbles: true, cancelable: false
+        });
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentdowngraded', true, true);
+      }
       component.element_.dispatchEvent(ev);
     }
   }
