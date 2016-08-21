@@ -1,6 +1,6 @@
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.1.1
+ * @version v1.2.0
  * @license Apache-2.0
  * @copyright 2015 Google, Inc.
  * @link https://github.com/google/material-design-lite
@@ -64,7 +64,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -169,12 +170,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -252,7 +252,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -357,12 +358,11 @@
   /* BADGE */
   /* SHADOWS */
   /* GRID */
-  /* 840px */
   /* DATA TABLE */
   /* DIALOG */
   /* SNACKBAR */
-  /* DIALOG */
   /* TOOLTIP */
+  /* CHIP */
   /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -439,7 +439,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -544,12 +545,11 @@
   /* BADGE */
   /* SHADOWS */
   /* GRID */
-  /* 840px */
   /* DATA TABLE */
   /* DIALOG */
   /* SNACKBAR */
-  /* DIALOG */
   /* TOOLTIP */
+  /* CHIP */
   /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -717,7 +717,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -822,12 +823,11 @@
   /* BADGE */
   /* SHADOWS */
   /* GRID */
-  /* 840px */
   /* DATA TABLE */
   /* DIALOG */
   /* SNACKBAR */
-  /* DIALOG */
   /* TOOLTIP */
+  /* CHIP */
   /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -936,13 +936,11 @@
       .annoto *,
       .annoto *:before,
       .annoto *:after,
-      .annoto *:first-letter,
-      .annoto *:first-line {
+      .annoto *:first-letter {
         background: transparent !important;
         color: #000 !important;
         /* Black prints faster: http://www.sanbeiji.com/archives/953 */
-        box-shadow: none !important;
-        text-shadow: none !important; }
+        box-shadow: none !important; }
       .annoto a,
       .annoto a:visited {
         text-decoration: underline; }
@@ -1383,7 +1381,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -1488,12 +1487,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -3231,7 +3229,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3336,12 +3335,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -3419,7 +3417,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3524,12 +3523,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-animation--default {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
@@ -3599,7 +3597,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3704,12 +3703,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-badge {
   position: relative;
   white-space: nowrap;
@@ -3816,7 +3814,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3921,12 +3920,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4196,7 +4194,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4301,12 +4300,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-card {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4463,7 +4461,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4568,12 +4567,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4766,7 +4764,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4871,12 +4870,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5041,7 +5039,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5146,12 +5145,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5266,7 +5264,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5371,12 +5370,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5681,7 +5679,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5786,12 +5785,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-mini-footer {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5916,7 +5914,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6021,12 +6020,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6157,7 +6155,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6262,12 +6261,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6478,7 +6476,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6583,12 +6582,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6811,7 +6809,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6916,12 +6915,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-progress {
   display: block;
   position: relative;
@@ -7093,7 +7091,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7198,12 +7197,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7361,8 +7359,8 @@ input.amdl-button[type="submit"] {
       .amdl-layout__drawer .amdl-navigation .amdl-navigation__link:hover {
         background-color: rgb(224,224,224); }
       .amdl-layout__drawer .amdl-navigation .amdl-navigation__link--current {
-        background-color: rgb(0,0,0);
-        color: rgb(224,224,224); }
+        background-color: rgb(224,224,224);
+        color: rgb(0,0,0); }
   @media screen and (min-width: 1025px) {
     .amdl-layout--fixed-drawer > .amdl-layout__drawer {
       -webkit-transform: translateX(0);
@@ -7381,7 +7379,7 @@ input.amdl-button[type="submit"] {
   text-align: center;
   cursor: pointer;
   font-size: 26px;
-  line-height: 50px;
+  line-height: 56px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 10px 12px;
   top: 0;
@@ -7400,12 +7398,12 @@ input.amdl-button[type="submit"] {
       margin: 4px;
       color: rgba(0, 0, 0, 0.5); } }
   @media screen and (min-width: 1025px) {
-    .amdl-layout--fixed-drawer > .amdl-layout__drawer-button {
-      display: none; }
-    .amdl-layout--no-desktop-drawer-button .amdl-layout__drawer-button {
-      display: none; } }
-  .amdl-layout--no-drawer-button .amdl-layout__drawer-button {
-    display: none; }
+    .amdl-layout__drawer-button {
+      line-height: 64px; }
+      .amdl-layout--no-desktop-drawer-button .amdl-layout__drawer-button,
+      .amdl-layout--fixed-drawer > .amdl-layout__drawer-button,
+      .amdl-layout--no-drawer-button .amdl-layout__drawer-button {
+        display: none; } }
 
 .amdl-layout__header {
   display: -webkit-flex;
@@ -7686,7 +7684,6 @@ input.amdl-button[type="submit"] {
       left: -4px; }
   @media screen and (max-width: 1024px) {
     .amdl-layout__tab-bar-button {
-      display: none;
       width: 60px; } }
   .amdl-layout--fixed-tabs .amdl-layout__tab-bar-button {
     display: none; }
@@ -7822,7 +7819,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7927,12 +7925,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8112,7 +8109,8 @@ input.amdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8217,12 +8215,11 @@ input.amdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -8525,7 +8522,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8630,12 +8628,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8659,17 +8656,20 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
   position: fixed;
   bottom: 0;
   left: 50%;
-  margin-right: -50%;
   cursor: default;
   background-color: #323232;
-  z-index: 10000;
+  z-index: 3;
+  display: block;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   will-change: transform;
-  -webkit-transform: translate(-50%, 80px);
-          transform: translate(-50%, 80px);
+  -webkit-transform: translate(0, 80px);
+          transform: translate(0, 80px);
   transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1), -webkit-transform 0.25s cubic-bezier(0.4, 0, 1, 1);
@@ -8684,24 +8684,32 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
     .amdl-snackbar {
       min-width: 288px;
       max-width: 568px;
-      border-radius: 2px; } }
+      border-radius: 2px;
+      -webkit-transform: translate(-50%, 80px);
+              transform: translate(-50%, 80px); } }
   .amdl-snackbar--active {
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
     pointer-events: auto;
     transition: -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1);
     transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
     transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1); }
+    @media (min-width: 480px) {
+      .amdl-snackbar--active {
+        -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0); } }
   .amdl-snackbar__text {
-    padding: 14px 24px;
+    padding: 14px 12px 14px 24px;
     vertical-align: middle;
-    color: white; }
+    color: white;
+    float: left; }
   .amdl-snackbar__action {
     background: transparent;
     border: none;
     color: rgb(255,64,129);
+    float: right;
     text-transform: uppercase;
-    padding: 14px 24px;
+    padding: 14px 24px 14px 12px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -8715,7 +8723,9 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    vertical-align: middle; }
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
     .amdl-snackbar__action::-moz-focus-inner {
       border: 0; }
     .amdl-snackbar__action:not([aria-hidden]) {
@@ -8779,7 +8789,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8884,12 +8895,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-spinner {
   display: inline-block;
   position: relative;
@@ -9272,7 +9282,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9377,12 +9388,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9588,7 +9598,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9693,12 +9704,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-tabs {
   display: block;
   width: 100%; }
@@ -9846,7 +9856,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9951,12 +9962,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9999,6 +10009,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
   min-width: 32px;
   width: auto;
   min-height: 32px; }
+  .amdl-textfield--expandable .amdl-button--icon {
+    top: 16px; }
 
 .amdl-textfield__input {
   border: none;
@@ -10046,22 +10058,27 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
   overflow: hidden;
   white-space: nowrap;
   text-align: left; }
-  .amdl-textfield.is-dirty .amdl-textfield__label {
+  .amdl-textfield.is-dirty .amdl-textfield__label,
+  .amdl-textfield.has-placeholder .amdl-textfield__label {
     visibility: hidden; }
   .amdl-textfield--floating-label .amdl-textfield__label {
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .amdl-textfield--floating-label.has-placeholder .amdl-textfield__label {
+    transition: none; }
   fieldset[disabled] .amdl-textfield .amdl-textfield__label,
   .amdl-textfield.is-disabled.is-disabled .amdl-textfield__label {
     color: rgba(0,0,0, 0.26); }
   .amdl-textfield--floating-label.is-focused .amdl-textfield__label,
-  .amdl-textfield--floating-label.is-dirty .amdl-textfield__label {
+  .amdl-textfield--floating-label.is-dirty .amdl-textfield__label,
+  .amdl-textfield--floating-label.has-placeholder .amdl-textfield__label {
     color: rgb(63,81,181);
     font-size: 12px;
     top: 4px;
     visibility: visible; }
   .amdl-textfield--floating-label.is-focused .amdl-textfield__expandable-holder .amdl-textfield__label,
-  .amdl-textfield--floating-label.is-dirty .amdl-textfield__expandable-holder .amdl-textfield__label {
+  .amdl-textfield--floating-label.is-dirty .amdl-textfield__expandable-holder .amdl-textfield__label,
+  .amdl-textfield--floating-label.has-placeholder .amdl-textfield__expandable-holder .amdl-textfield__label {
     top: -16px; }
   .amdl-textfield--floating-label.is-invalid .amdl-textfield__label {
     color: rgb(213,0,0);
@@ -10164,7 +10181,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10269,18 +10287,16 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-tooltip {
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  will-change: transform;
   z-index: 999;
   background: rgba(97,97,97, 0.9);
   border-radius: 2px;
@@ -10390,7 +10406,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10495,12 +10512,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10603,7 +10619,8 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10708,12 +10725,11 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .amdl-grid {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10963,7 +10979,7 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
     .amdl-grid.amdl-grid--no-spacing > .amdl-cell--3-offset-phone.amdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 480px) and (max-width: 1024px) {
+@media (min-width: 480px) and (max-width: 839px) {
   .amdl-grid {
     padding: 8px; }
   .amdl-cell {
@@ -11136,7 +11152,7 @@ _:-ms-input-placeholder, :root .amdl-slider.amdl-slider.is-upgraded {
     .amdl-grid.amdl-grid--no-spacing > .amdl-cell--7-offset-tablet.amdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 1025px) {
+@media (min-width: 840px) {
   .amdl-grid {
     padding: 8px; }
   .amdl-cell {
