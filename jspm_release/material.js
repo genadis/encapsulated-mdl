@@ -247,8 +247,15 @@ componentHandler = (function() {
           'Unable to find a registered component for the given class.');
       }
 
-      var ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentupgraded', true, true);
+      var ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
+        ev = new CustomEvent('mdl-componentupgraded', {
+          bubbles: true, cancelable: false
+        });
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentupgraded', true, true);
+      }
       element.dispatchEvent(ev);
     }
   }
@@ -261,10 +268,10 @@ componentHandler = (function() {
    */
   function upgradeElementsInternal(elements) {
     if (!Array.isArray(elements)) {
-      if (typeof elements.item === 'function') {
-        elements = Array.prototype.slice.call(/** @type {Array} */ (elements));
-      } else {
+      if (elements instanceof Element) {
         elements = [elements];
+      } else {
+        elements = Array.prototype.slice.call(elements);
       }
     }
     for (var i = 0, n = elements.length, element; i < n; i++) {
@@ -371,8 +378,15 @@ componentHandler = (function() {
       upgrades.splice(componentPlace, 1);
       component.element_.setAttribute('data-upgraded', upgrades.join(','));
 
-      var ev = document.createEvent('Events');
-      ev.initEvent('mdl-componentdowngraded', true, true);
+      var ev;
+      if ('CustomEvent' in window && typeof window.CustomEvent === 'function') {
+        ev = new CustomEvent('mdl-componentdowngraded', {
+          bubbles: true, cancelable: false
+        });
+      } else {
+        ev = document.createEvent('Events');
+        ev.initEvent('mdl-componentdowngraded', true, true);
+      }
       component.element_.dispatchEvent(ev);
     }
   }
@@ -1797,7 +1811,7 @@ MaterialRadio.prototype['enable'] = MaterialRadio.prototype.enable;
    */
 MaterialRadio.prototype.check = function () {
     this.btnElement_.checked = true;
-    this.updateClasses_();
+    this.onChange_(null);
 };
 MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
 /**
@@ -1807,7 +1821,7 @@ MaterialRadio.prototype['check'] = MaterialRadio.prototype.check;
    */
 MaterialRadio.prototype.uncheck = function () {
     this.btnElement_.checked = false;
-    this.updateClasses_();
+    this.onChange_(null);
 };
 MaterialRadio.prototype['uncheck'] = MaterialRadio.prototype.uncheck;
 /**
@@ -2793,7 +2807,8 @@ MaterialTextfield.prototype.CssClasses_ = {
     IS_FOCUSED: 'is-focused',
     IS_DISABLED: 'is-disabled',
     IS_INVALID: 'is-invalid',
-    IS_UPGRADED: 'is-upgraded'
+    IS_UPGRADED: 'is-upgraded',
+    HAS_PLACEHOLDER: 'has-placeholder'
 };
 /**
    * Handle input being entered.
@@ -2947,6 +2962,9 @@ MaterialTextfield.prototype.init = function () {
                     this.maxRows = this.Constant_.NO_MAX_ROWS;
                 }
             }
+            if (this.input_.hasAttribute('placeholder')) {
+                this.element_.classList.add(this.CssClasses_.HAS_PLACEHOLDER);
+            }
             this.boundUpdateClassesHandler = this.updateClasses_.bind(this);
             this.boundFocusHandler = this.onFocus_.bind(this);
             this.boundBlurHandler = this.onBlur_.bind(this);
@@ -3049,16 +3067,16 @@ MaterialTooltip.prototype.handleMouseEnter_ = function (event) {
     if (this.element_.classList.contains(this.CssClasses_.LEFT) || this.element_.classList.contains(this.CssClasses_.RIGHT)) {
         left = props.width / 2;
         if (top + marginTop < 0) {
-            this.element_.style.top = 0;
-            this.element_.style.marginTop = 0;
+            this.element_.style.top = '0';
+            this.element_.style.marginTop = '0';
         } else {
             this.element_.style.top = top + 'px';
             this.element_.style.marginTop = marginTop + 'px';
         }
     } else {
         if (left + marginLeft < 0) {
-            this.element_.style.left = 0;
-            this.element_.style.marginLeft = 0;
+            this.element_.style.left = '0';
+            this.element_.style.marginLeft = '0';
         } else {
             this.element_.style.left = left + 'px';
             this.element_.style.marginLeft = marginLeft + 'px';
@@ -3076,11 +3094,11 @@ MaterialTooltip.prototype.handleMouseEnter_ = function (event) {
     this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
 };
 /**
-   * Handle mouseleave for tooltip.
+   * Hide tooltip on mouseleave or scroll
    *
    * @private
    */
-MaterialTooltip.prototype.handleMouseLeave_ = function () {
+MaterialTooltip.prototype.hideTooltip_ = function () {
     this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
 };
 /**
@@ -3088,7 +3106,7 @@ MaterialTooltip.prototype.handleMouseLeave_ = function () {
    */
 MaterialTooltip.prototype.init = function () {
     if (this.element_) {
-        var forElId = this.element_.getAttribute('for');
+        var forElId = this.element_.getAttribute('for') || this.element_.getAttribute('data-mdl-for');
         if (forElId) {
             this.forElement_ = document.getElementById(forElId);
         }
@@ -3098,11 +3116,12 @@ MaterialTooltip.prototype.init = function () {
                 this.forElement_.setAttribute('tabindex', '0');
             }
             this.boundMouseEnterHandler = this.handleMouseEnter_.bind(this);
-            this.boundMouseLeaveHandler = this.handleMouseLeave_.bind(this);
+            this.boundMouseLeaveAndScrollHandler = this.hideTooltip_.bind(this);
             this.forElement_.addEventListener('mouseenter', this.boundMouseEnterHandler, false);
             this.forElement_.addEventListener('touchend', this.boundMouseEnterHandler, false);
-            this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveHandler, false);
-            window.addEventListener('touchstart', this.boundMouseLeaveHandler);
+            this.forElement_.addEventListener('mouseleave', this.boundMouseLeaveAndScrollHandler, false);
+            window.addEventListener('scroll', this.boundMouseLeaveAndScrollHandler, true);
+            window.addEventListener('touchstart', this.boundMouseLeaveAndScrollHandler);
         }
     }
 };
@@ -3255,7 +3274,8 @@ MaterialLayout.prototype.contentScrollHandler_ = function () {
    * @private
    */
 MaterialLayout.prototype.keyboardEventHandler_ = function (evt) {
-    if (evt.keyCode === this.Keycodes_.ESCAPE) {
+    // Only react when the drawer is open.
+    if (evt.keyCode === this.Keycodes_.ESCAPE && this.drawer_.classList.contains(this.CssClasses_.IS_DRAWER_OPEN)) {
         this.toggleDrawer();
     }
 };
@@ -3359,9 +3379,13 @@ MaterialLayout.prototype.init = function () {
     if (this.element_) {
         var container = document.createElement('div');
         container.classList.add(this.CssClasses_.CONTAINER);
+        var focusedElement = this.element_.querySelector(':focus');
         this.element_.parentElement.insertBefore(container, this.element_);
         this.element_.parentElement.removeChild(this.element_);
         container.appendChild(this.element_);
+        if (focusedElement) {
+            focusedElement.focus();
+        }
         var directChildren = this.element_.childNodes;
         var numChildren = directChildren.length;
         for (var c = 0; c < numChildren; c++) {
@@ -3575,15 +3599,6 @@ function MaterialLayoutTab(tab, tabs, panels, layout) {
         }
     });
     tab.show = selectTab;
-    tab.addEventListener('click', function (e) {
-        e.preventDefault();
-        var href = tab.href.split('#')[1];
-        var panel = layout.content_.querySelector('#' + href);
-        layout.resetTabState_(tabs);
-        layout.resetPanelState_(panels);
-        tab.classList.add(layout.CssClasses_.IS_ACTIVE);
-        panel.classList.add(layout.CssClasses_.IS_ACTIVE);
-    });
 }
 window['MaterialLayoutTab'] = MaterialLayoutTab;
 // The component registers itself. It can assume componentHandler is available

@@ -1,6 +1,6 @@
 /**
  * material-design-lite - Material Design Components in CSS, JS and HTML
- * @version v1.1.1
+ * @version v1.2.0
  * @license Apache-2.0
  * @copyright 2015 Google, Inc.
  * @link https://github.com/google/material-design-lite
@@ -64,7 +64,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -169,12 +170,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -266,7 +266,8 @@
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -371,12 +372,11 @@
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -532,13 +532,11 @@ textarea {
   *,
   *:before,
   *:after,
-  *:first-letter,
-  *:first-line {
+  *:first-letter {
     background: transparent !important;
     color: #000 !important;
     /* Black prints faster: http://www.sanbeiji.com/archives/953 */
-    box-shadow: none !important;
-    text-shadow: none !important; }
+    box-shadow: none !important; }
   a,
   a:visited {
     text-decoration: underline; }
@@ -689,7 +687,8 @@ main {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -794,12 +793,11 @@ main {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -1273,7 +1271,8 @@ ul, ol {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -1378,12 +1377,11 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-color-text--red {
   color: rgb(244,67,54) !important; }
 
@@ -3121,7 +3119,8 @@ ul, ol {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3226,12 +3225,11 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-ripple {
   background: rgb(0,0,0);
   border-radius: 50%;
@@ -3309,7 +3307,8 @@ ul, ol {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3414,12 +3413,11 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-animation--default {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
 
@@ -3489,7 +3487,8 @@ ul, ol {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3594,12 +3593,11 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -3706,7 +3704,8 @@ ul, ol {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -3811,12 +3810,11 @@ ul, ol {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4086,7 +4084,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4191,12 +4190,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-card {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4353,7 +4351,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4458,12 +4457,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4656,7 +4654,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -4761,12 +4760,253 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* Typography */
+/* Shadows */
+/* Animations */
+/* Dialog */
+.mdl-chip {
+  height: 32px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 16px;
+  background-color: #dedede;
+  display: inline-block;
+  color: rgba(0,0,0, 0.87);
+  margin: 2px 0;
+  font-size: 0;
+  white-space: nowrap; }
+  .mdl-chip__text {
+    font-size: 13px;
+    vertical-align: middle;
+    display: inline-block; }
+  .mdl-chip__action {
+    height: 24px;
+    width: 24px;
+    background: transparent;
+    opacity: 0.54;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 0 0 4px;
+    font-size: 13px;
+    text-decoration: none;
+    color: rgba(0,0,0, 0.87);
+    border: none;
+    outline: none;
+    overflow: hidden; }
+  .mdl-chip__contact {
+    height: 32px;
+    width: 32px;
+    border-radius: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 18px;
+    line-height: 32px; }
+  .mdl-chip:focus {
+    outline: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  .mdl-chip:active {
+    background-color: #d6d6d6; }
+  .mdl-chip--deletable {
+    padding-right: 4px; }
+  .mdl-chip--contact {
+    padding-left: 0; }
+
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/*------------------------------------*    $CONTENTS
+\*------------------------------------*/
+/**
+ * STYLE GUIDE VARIABLES------------------Declarations of Sass variables
+ * -----Typography
+ * -----Colors
+ * -----Textfield
+ * -----Switch
+ * -----Spinner
+ * -----Radio
+ * -----Menu
+ * -----List
+ * -----Layout
+ * -----Icon toggles
+ * -----Footer
+ * -----Column
+ * -----Checkbox
+ * -----Card
+ * -----Button
+ * -----Animation
+ * -----Progress
+ * -----Badge
+ * -----Shadows
+ * -----Grid
+ * -----Data table
+ * -----Dialog
+ * -----Snackbar
+ * -----Tooltip
+ * -----Chip
+ *
+ * Even though all variables have the `!default` directive, most of them
+ * should not be changed as they are dependent one another. This can cause
+ * visual distortions (like alignment issues) that are hard to track down
+ * and fix.
+ */
+/* ==========  TYPOGRAPHY  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+/* ==========  COLORS  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  Color Palettes  ========== */
+/* colors.scss */
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/* ==========  IMAGES  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* ==========  Sliders ========== */
+/* ========== Progress ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* TEXTFIELD */
+/* SWITCH */
+/* SPINNER */
+/* RADIO */
+/* MENU */
+/* LIST */
+/* LAYOUT */
+/* ICON TOGGLE */
+/* FOOTER */
+/*mega-footer*/
+/*mini-footer*/
+/* CHECKBOX */
+/* CARD */
+/* Card dimensions */
+/* Cover image */
+/* BUTTON */
+/**
+ *
+ * Dimensions
+ *
+ */
+/* ANIMATION */
+/* PROGRESS */
+/* BADGE */
+/* SHADOWS */
+/* GRID */
+/* DATA TABLE */
+/* DIALOG */
+/* SNACKBAR */
+/* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4931,7 +5171,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5036,12 +5277,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5156,7 +5396,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5261,12 +5502,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5571,7 +5811,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5676,12 +5917,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-mini-footer {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5806,7 +6046,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -5911,12 +6152,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -6047,7 +6287,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6152,12 +6393,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6368,7 +6608,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6473,12 +6714,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6701,7 +6941,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -6806,12 +7047,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-progress {
   display: block;
   position: relative;
@@ -6983,7 +7223,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7088,12 +7329,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7251,8 +7491,8 @@ input.mdl-button[type="submit"] {
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
         background-color: rgb(224,224,224); }
       .mdl-layout__drawer .mdl-navigation .mdl-navigation__link--current {
-        background-color: rgb(0,0,0);
-        color: rgb(224,224,224); }
+        background-color: rgb(224,224,224);
+        color: rgb(0,0,0); }
   @media screen and (min-width: 1025px) {
     .mdl-layout--fixed-drawer > .mdl-layout__drawer {
       -webkit-transform: translateX(0);
@@ -7271,7 +7511,7 @@ input.mdl-button[type="submit"] {
   text-align: center;
   cursor: pointer;
   font-size: 26px;
-  line-height: 50px;
+  line-height: 56px;
   font-family: Helvetica, Arial, sans-serif;
   margin: 10px 12px;
   top: 0;
@@ -7290,12 +7530,12 @@ input.mdl-button[type="submit"] {
       margin: 4px;
       color: rgba(0, 0, 0, 0.5); } }
   @media screen and (min-width: 1025px) {
-    .mdl-layout--fixed-drawer > .mdl-layout__drawer-button {
-      display: none; }
-    .mdl-layout--no-desktop-drawer-button .mdl-layout__drawer-button {
-      display: none; } }
-  .mdl-layout--no-drawer-button .mdl-layout__drawer-button {
-    display: none; }
+    .mdl-layout__drawer-button {
+      line-height: 64px; }
+      .mdl-layout--no-desktop-drawer-button .mdl-layout__drawer-button,
+      .mdl-layout--fixed-drawer > .mdl-layout__drawer-button,
+      .mdl-layout--no-drawer-button .mdl-layout__drawer-button {
+        display: none; } }
 
 .mdl-layout__header {
   display: -webkit-flex;
@@ -7576,7 +7816,6 @@ input.mdl-button[type="submit"] {
       left: -4px; }
   @media screen and (max-width: 1024px) {
     .mdl-layout__tab-bar-button {
-      display: none;
       width: 60px; } }
   .mdl-layout--fixed-tabs .mdl-layout__tab-bar-button {
     display: none; }
@@ -7712,7 +7951,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -7817,12 +8057,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8002,7 +8241,8 @@ input.mdl-button[type="submit"] {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8107,12 +8347,11 @@ input.mdl-button[type="submit"] {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -8415,7 +8654,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8520,12 +8760,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8549,17 +8788,20 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   position: fixed;
   bottom: 0;
   left: 50%;
-  margin-right: -50%;
   cursor: default;
   background-color: #323232;
-  z-index: 10000;
+  z-index: 3;
+  display: block;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   will-change: transform;
-  -webkit-transform: translate(-50%, 80px);
-          transform: translate(-50%, 80px);
+  -webkit-transform: translate(0, 80px);
+          transform: translate(0, 80px);
   transition: -webkit-transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 1, 1), -webkit-transform 0.25s cubic-bezier(0.4, 0, 1, 1);
@@ -8574,24 +8816,32 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-snackbar {
       min-width: 288px;
       max-width: 568px;
-      border-radius: 2px; } }
+      border-radius: 2px;
+      -webkit-transform: translate(-50%, 80px);
+              transform: translate(-50%, 80px); } }
   .mdl-snackbar--active {
-    -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
     pointer-events: auto;
     transition: -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1);
     transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1);
     transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.25s cubic-bezier(0, 0, 0.2, 1); }
+    @media (min-width: 480px) {
+      .mdl-snackbar--active {
+        -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0); } }
   .mdl-snackbar__text {
-    padding: 14px 24px;
+    padding: 14px 12px 14px 24px;
     vertical-align: middle;
-    color: white; }
+    color: white;
+    float: left; }
   .mdl-snackbar__action {
     background: transparent;
     border: none;
     color: rgb(255,64,129);
+    float: right;
     text-transform: uppercase;
-    padding: 14px 24px;
+    padding: 14px 24px 14px 12px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -8605,7 +8855,9 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    vertical-align: middle; }
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+            align-self: center; }
     .mdl-snackbar__action::-moz-focus-inner {
       border: 0; }
     .mdl-snackbar__action:not([aria-hidden]) {
@@ -8669,7 +8921,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -8774,12 +9027,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -9162,7 +9414,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9267,12 +9520,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9478,7 +9730,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9583,12 +9836,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -9736,7 +9988,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -9841,12 +10094,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9889,6 +10141,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   min-width: 32px;
   width: auto;
   min-height: 32px; }
+  .mdl-textfield--expandable .mdl-button--icon {
+    top: 16px; }
 
 .mdl-textfield__input {
   border: none;
@@ -9936,22 +10190,27 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   overflow: hidden;
   white-space: nowrap;
   text-align: left; }
-  .mdl-textfield.is-dirty .mdl-textfield__label {
+  .mdl-textfield.is-dirty .mdl-textfield__label,
+  .mdl-textfield.has-placeholder .mdl-textfield__label {
     visibility: hidden; }
   .mdl-textfield--floating-label .mdl-textfield__label {
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
+    transition: none; }
   fieldset[disabled] .mdl-textfield .mdl-textfield__label,
   .mdl-textfield.is-disabled.is-disabled .mdl-textfield__label {
     color: rgba(0,0,0, 0.26); }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__label,
-  .mdl-textfield--floating-label.is-dirty .mdl-textfield__label {
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__label,
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__label {
     color: rgb(63,81,181);
     font-size: 12px;
     top: 4px;
     visibility: visible; }
   .mdl-textfield--floating-label.is-focused .mdl-textfield__expandable-holder .mdl-textfield__label,
-  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
+  .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label,
+  .mdl-textfield--floating-label.has-placeholder .mdl-textfield__expandable-holder .mdl-textfield__label {
     top: -16px; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
     color: rgb(213,0,0);
@@ -10054,7 +10313,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10159,18 +10419,16 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-tooltip {
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transform-origin: top center;
           transform-origin: top center;
-  will-change: transform;
   z-index: 999;
   background: rgba(97,97,97, 0.9);
   border-radius: 2px;
@@ -10280,7 +10538,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10385,12 +10644,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10493,7 +10751,8 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * -----Data table
  * -----Dialog
  * -----Snackbar
- * -----Dialog
+ * -----Tooltip
+ * -----Chip
  *
  * Even though all variables have the `!default` directive, most of them
  * should not be changed as they are dependent one another. This can cause
@@ -10598,12 +10857,11 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
 /* BADGE */
 /* SHADOWS */
 /* GRID */
-/* 840px */
 /* DATA TABLE */
 /* DIALOG */
 /* SNACKBAR */
-/* DIALOG */
 /* TOOLTIP */
+/* CHIP */
 .mdl-grid {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -10853,7 +11111,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-grid.mdl-grid--no-spacing > .mdl-cell--3-offset-phone.mdl-cell--3-offset-phone {
       margin-left: 75%; } }
 
-@media (min-width: 480px) and (max-width: 1024px) {
+@media (min-width: 480px) and (max-width: 839px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
@@ -11026,7 +11284,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
     .mdl-grid.mdl-grid--no-spacing > .mdl-cell--7-offset-tablet.mdl-cell--7-offset-tablet {
       margin-left: 87.5%; } }
 
-@media (min-width: 1025px) {
+@media (min-width: 840px) {
   .mdl-grid {
     padding: 8px; }
   .mdl-cell {
