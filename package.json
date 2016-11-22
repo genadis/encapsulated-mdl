@@ -1,11 +1,14 @@
 {
   "name": "encapsulated-mdl",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Material Design Components in CSS, JS and HTML",
-  "private": true,
+  "private": false,
   "license": "Apache-2.0",
   "author": "Google, forked by Genadi",
-  "repository": "genadis/encapsulated-mdl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/genadis/encapsulated-mdl"
+  },
   "main": "dist/material.min.js",
   "devDependencies": {
     "acorn": "^4.0.3",
