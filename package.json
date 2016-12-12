@@ -72,5 +72,15 @@
   },
   "babel": {
     "only": "gulpfile.babel.js"
+  },
+  "jspm": {
+    "registry": "npm",
+    "jspmPackage": true,
+    "format": "cjs",
+    "name": "@annoto/mdl",
+    "main": "material.min",
+    "directories": {
+      "dist": "jspm_release"
+    }
   }
 }
