@@ -7,4 +7,5 @@ docs/out
 /dist
 .idea/
 _release/
+jspm_release/
 .drone.sec.yml
