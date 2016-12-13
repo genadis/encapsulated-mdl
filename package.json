@@ -1,13 +1,13 @@
 {
-  "name": "encapsulated-mdl",
-  "version": "1.2.2",
+  "name": "@annoto/mdl",
+  "version": "1.2.3",
   "description": "Material Design Components in CSS, JS and HTML",
   "private": false,
   "license": "Apache-2.0",
   "author": "Google, forked by Genadi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/genadis/encapsulated-mdl"
+    "url": "https://genadis@bitbucket.org/annototeam/annoto-mdl.git"
   },
   "main": "dist/material.min.js",
   "devDependencies": {
@@ -74,12 +74,13 @@
     "only": "gulpfile.babel.js"
   },
   "jspm": {
-    "name": "encapsulated-mdl",
-    "repository": "genadis/encapsulated-mdl",
-    "version": "2.2.1",
-    "main": "./material.min.js",
+    "registry": "npm",
+    "jspmPackage": true,
+    "format": "cjs",
+    "name": "@annoto/mdl",
+    "main": "material.min",
     "directories": {
-      "lib": "jspm_release"
+      "dist": "jspm_release"
     }
   }
 }

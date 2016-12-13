@@ -15,4 +15,5 @@ bower.json
 .drone.sec
 .drone.yml
 .editorconfig
+jspm_release
 
