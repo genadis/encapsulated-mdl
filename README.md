@@ -18,6 +18,12 @@ test/index.html             // add SystemJS to load mdl as module, add MDL compo
 package.json                // add jspm configuration
 ```
 
+## Install
+> The `widget` branch is used for releases, `master` is used for merges with the original mdl.
+```
+npm install encapsulated-mdl --save
+```
+
 ## Build
 
 ### MDL as Module
@@ -26,7 +32,7 @@ Encapsulates only the JS code as module.
 Run:
 ```
 gulp all:encap
-```    
+```
 To build and test (SystemJS is used for loading mdl as module for testing).
 
 Exported:
@@ -109,17 +115,9 @@ vendor class.
 
 [Jspm](http://jspm.io/) package configuration was added as well.
 
-Running:
-```
-gulp jspm:release
-```
-Will generate "jspm_release" folder. used as directories.lib
+> `gulp jspm:release` task is deprecated dist folder is used.
 
-Check out the [jsp-releasa branch](https://github.com/genadis/encapsulated-mdl/tree/jspm-release)
->***Note:*** the released versions are MDL as Module builds, for Widget builds use the build instructions as it's vendor specific.
-
-### Versioning
-Notice the Major is 2.X.x instead of 1.X.X since building encapsulated version does not populate componentHandler into global scope - changes API.
+## Backward Compatibility
 
 You can always run the usual:
 ```

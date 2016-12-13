@@ -16,4 +16,9 @@ bower.json
 .drone.yml
 .editorconfig
 jspm_release
-
+ dist/*
+ dist/*.*
+ !dist/*.min.css
+ !dist/material.min.js
+ !dist/LICENSE
+ !dist/package.json

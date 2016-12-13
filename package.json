@@ -80,7 +80,7 @@
     "name": "encapsulated-mdl",
     "main": "material.min",
     "directories": {
-      "dist": "jspm_release"
+      "dist": "dist"
     }
   }
 }
