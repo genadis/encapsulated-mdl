@@ -1,5 +1,5 @@
 if (false === (gWindow === window)) {
-  if (typeof module === 'object') {
+  if ((typeof module === 'object') || (typeof define === 'function' && define.amd)) {
     var mdl = {};
     mdl.componentHandler = window.componentHandler;
     mdl.components = {};
@@ -21,7 +21,14 @@ if (false === (gWindow === window)) {
     mdl.components.MaterialTextfield = window.MaterialTextfield;
     mdl.components.MaterialTooltip = window.MaterialTooltip;
 
-    module.exports = mdl;
+    if (typeof module === 'object') {
+      module.exports = mdl;
+    }
+    if (typeof define === 'function' && define.amd) {
+      define([], function () {
+        return mdl;
+      });
+    }
   } else {
     gWindow[vendor] = gWindow[vendor] || {};
     gWindow[vendor].mdl = window;
