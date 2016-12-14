@@ -902,7 +902,7 @@ gulp.task('styles-widget-tmp', () => {
 });
 
 // Compile and Automatically Prefix Stylesheets (production widget)
-gulp.task('styles-widget', /*['styles-widget-tmp'],*/ () => {
+gulp.task('styles-widget', ['styles-widget-tmp'], () => {
   var stylesVendor = unquoteString(vendor);
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src('src/material-design-lite-widget.scss')
