@@ -1,3 +1,5 @@
+## Deprecated. No longer maintained due to https://material.io/components/web/
+
 # Material Design Lite Encapsulated
 
 ##### Fork of [Material Design Lite](https://github.com/google/material-design-lite) (MDL).
